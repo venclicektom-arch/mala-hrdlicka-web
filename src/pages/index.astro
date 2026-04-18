@@ -1,17 +1,473 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout>
+  <section class="relative w-full h-[85vh] min-h-[600px] flex items-center justify-center overflow-hidden bg-[#1A2E24]">
+    <img 
+      src="/img/hero.jpg" 
+      alt="Areál Malá Hrdlička na Slapech" 
+      class="absolute inset-0 w-full h-full object-cover object-center"
+    />
+    <div class="absolute inset-0 bg-[#0A120E]/30 mix-blend-multiply"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-[#1A2E24]/80 via-transparent to-transparent"></div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-6 text-center mt-16">
+      <div class="inline-flex items-center gap-3 mb-6 bg-white/10 backdrop-blur-sm px-4 py-1.5 rounded-full border border-white/20">
+        <span class="w-2 h-2 rounded-full bg-[#D4C3A3]"></span>
+        <span class="text-[#F9F8F6] text-[10px] uppercase tracking-[0.2em] font-semibold">
+          Slapská přehrada, Čím
+        </span>
+      </div>
+      
+      <h1 class="text-4xl md:text-6xl lg:text-7xl text-white font-bold leading-[1.15] tracking-tight mb-6 drop-shadow-lg">
+        Váš klidný přístav <br class="hidden md:block"/> v srdci přírody
+      </h1>
+      
+      <p class="text-lg md:text-xl text-[#E8E6E1] font-light max-w-2xl mx-auto mb-10 drop-shadow-md">
+        Nadechněte se vůně borovic. Rodinné apartmány a chatky jen pár kroků od břehu, ukryté před ruchem světa.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#nabidka" class="bg-[#A38A65] text-white px-8 py-3.5 rounded-sm text-[13px] uppercase tracking-[0.15em] font-semibold hover:bg-[#8B7351] hover:-translate-y-0.5 transition-all duration-300 shadow-lg">
+          Prohlédnout ubytování
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 md:py-24 bg-[#F5F2EB] overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        
+        <div class="relative z-10">
+          <span class="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.2em] uppercase text-[#A38A65] mb-6">
+            Pár slov o nás
+          </span>
+          <h2 class="text-3xl md:text-5xl font-semibold text-[#1A2E24] tracking-tight mb-6 leading-[1.2]">
+            Rodinný areál s <br />
+            <span class="text-[#A38A65]">tradicí a klidem.</span>
+          </h2>
+          
+          <div class="text-[#4A5446] font-light leading-relaxed text-[15px] mb-8">
+            <p>
+              Areál se nachází na levém břehu Slapské přehrady v osadě Hrdlička. Je obklopen lesem a k vodě dojdete příjemnou procházkou za 5 minut. Naším cílem je poskytnout rodinám s dětmi bezpečné místo pro klidný odpočinek i aktivní zábavu.
+            </p>
+          </div>
+
+          <div class="grid sm:grid-cols-2 gap-x-6 gap-y-5 mb-10 pt-6 border-t border-[#E8E6E1]">
+            <div class="flex items-start gap-3">
+              <div class="mt-1 text-[#A38A65]">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              </div>
+              <div>
+                <span class="block text-sm font-semibold text-[#1A2E24]">Snadná dostupnost</span>
+                <span class="text-xs text-[#6B7264] font-light leading-snug">Příjezd autem až na místo, parkování zajištěno přímo v areálu.</span>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div class="mt-1 text-[#A38A65]">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              </div>
+              <div>
+                <span class="block text-sm font-semibold text-[#1A2E24]">Stravování v okolí</span>
+                <span class="text-xs text-[#6B7264] font-light leading-snug">Restaurace v přímém sousedství, prodejna potravin vzdálena 2 km.</span>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div class="mt-1 text-[#A38A65]">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              </div>
+              <div>
+                <span class="block text-sm font-semibold text-[#1A2E24]">Domácí mazlíčci</span>
+                <span class="text-xs text-[#6B7264] font-light leading-snug">Psi malých plemen jsou vítáni (areál není uzpůsoben k volnému pobíhání).</span>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div class="mt-1 text-[#A38A65]">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              </div>
+              <div>
+                <span class="block text-sm font-semibold text-[#1A2E24]">Letní provoz</span>
+                <span class="text-xs text-[#6B7264] font-light leading-snug">Otevřeno od června do října s celkovou kapacitou 48 lůžek.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-2">
+            <a href="/o-nas" class="inline-flex items-center gap-3 text-[12px] uppercase tracking-widest font-bold text-[#1A2E24] group bg-white px-6 py-3 border border-[#E8E6E1] rounded-sm hover:border-[#A38A65] transition-colors shadow-sm">
+              <span class="group-hover:text-[#A38A65] transition-colors">Zjistit více o našem areálu</span>
+              <svg class="w-4 h-4 text-[#A38A65] group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="absolute -top-10 -right-10 w-64 h-64 bg-[#EAE5DA] rounded-full -z-10 shadow-sm"></div>
+          
+          <div class="aspect-[4/5] rounded-sm overflow-hidden border border-[#E8E6E1] bg-[#EAE8E3] flex items-center justify-center relative group shadow-lg shadow-[#1A2E24]/5">
+            <div class="text-center px-10">
+              <svg class="w-16 h-16 text-[#C1BCB3] mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+              </svg>
+              <span class="text-[#A5A096] text-[12px] uppercase tracking-widest font-bold block mb-2">Hlavní fotografie areálu</span>
+              <p class="text-[#A5A096] text-xs italic">Zde nejlépe vynikne pohled na areál s bazénem</p>
+            </div>
+            
+            <div class="absolute bottom-6 left-6 bg-white/90 backdrop-blur-sm p-4 border border-[#E8E6E1] hidden md:block shadow-sm">
+               <p class="text-[10px] uppercase tracking-[0.2em] font-bold text-[#A38A65] mb-1">Kapacita</p>
+               <p class="text-sm font-medium text-[#1A2E24]">Komfort pro 48 hostů</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="w-full h-24 bg-gradient-to-b from-[#F5F2EB] to-white"></div>
+  
+  <section class="py-16 md:py-24 bg-white relative" id="nabidka">
+    <div class="max-w-7xl mx-auto px-6 relative z-10">
+      
+      <div class="text-center max-w-2xl mx-auto mb-20">
+        <span class="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.2em] uppercase text-[#A38A65] mb-4">
+           <span class="w-4 h-[1px] bg-[#A38A65]"></span>
+           Naše nabídka
+           <span class="w-4 h-[1px] bg-[#A38A65]"></span>
+        </span>
+        <h2 class="text-3xl md:text-5xl font-semibold text-[#1A2E24] tracking-tight mb-6">Vyberte si svůj styl odpočinku</h2>
+        <p class="text-[#4A5446] font-light leading-relaxed text-lg">
+          Ať už preferujete pohodlí pevných zdí, nebo večery na dřevěné terase, máme pro vás to správné zázemí uprostřed zeleně.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-10 lg:gap-16">
+        
+        <div class="group flex flex-col bg-white rounded-sm border border-[#E8E6E1] overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-[#A38A65]/15 hover:-translate-y-1">
+          <div class="relative h-72 w-full bg-[#F4F2EE] flex items-center justify-center overflow-hidden">
+            <div class="text-center">
+              <svg class="w-10 h-10 text-[#C1BCB3] mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+              <span class="text-[#A5A096] text-[10px] uppercase tracking-widest font-bold">Foto: Interiér apartmánu</span>
+            </div>
+          </div>
+          <div class="p-8 md:p-10 flex flex-col flex-grow">
+             <h3 class="text-2xl md:text-3xl font-semibold text-[#1A2E24] mb-4">Zděné apartmány</h3>
+            <p class="text-[#4A5446] text-[15px] leading-relaxed mb-8 flex-grow font-light">
+              Maximální komfort pro ty, kteří vyžadují vyšší standard. Vlastní zázemí, moderní vybavení a klid pro nerušenou rodinnou dovolenou.
+            </p>
+            <ul class="space-y-4 mb-10 text-[14px] text-[#2C3329]">
+              <li class="flex items-center gap-4">
+                <span class="w-1.5 h-1.5 bg-[#A38A65] rounded-full"></span> Vlastní sociální zařízení
+              </li>
+              <li class="flex items-center gap-4">
+                <span class="w-1.5 h-1.5 bg-[#A38A65] rounded-full"></span> Plně vybavená kuchyně
+              </li>
+              <li class="flex items-center gap-4">
+                <span class="w-1.5 h-1.5 bg-[#A38A65] rounded-full"></span> Oddělené ložnice pro soukromí
+              </li>
+            </ul>
+            <div class="pt-6 border-t border-[#E8E6E1] flex items-center justify-between">
+              <div>
+                <span class="block text-[10px] uppercase tracking-widest text-[#8A9386] font-bold mb-1">Cena od</span>
+                 <span class="text-xl font-semibold text-[#1A2E24]">Cena na dotaz</span>
+              </div>
+              <a href="/ubytovani#apartmany" class="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.1em] font-bold text-[#A38A65] hover:text-[#1A2E24] transition-colors">
+                Detail
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="group flex flex-col bg-white rounded-sm border border-[#E8E6E1] overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-[#A38A65]/15 hover:-translate-y-1">
+          <div class="relative h-72 w-full bg-[#F4F2EE] flex items-center justify-center overflow-hidden">
+            <div class="text-center">
+              <svg class="w-10 h-10 text-[#C1BCB3] mx-auto mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+              <span class="text-[#A5A096] text-[10px] uppercase tracking-widest font-bold">Foto: Chatka a terasa</span>
+            </div>
+          </div>
+          <div class="p-8 md:p-10 flex flex-col flex-grow">
+             <h3 class="text-2xl md:text-3xl font-semibold text-[#1A2E24] mb-4">Dřevěné chatky</h3>
+            <p class="text-[#4A5446] text-[15px] leading-relaxed mb-8 flex-grow font-light">
+              Klasická letní romantika. Ranní káva na dřevěné terase, vůně lesa a bezprostřední kontakt s přírodou.
+            </p>
+            <ul class="space-y-4 mb-10 text-[14px] text-[#2C3329]">
+              <li class="flex items-center gap-4">
+                <span class="w-1.5 h-1.5 bg-[#A38A65] rounded-full"></span> Zastřešená terasa k posezení
+              </li>
+              <li class="flex items-center gap-4">
+                <span class="w-1.5 h-1.5 bg-[#A38A65] rounded-full"></span> Vlastní menší kuchyňka
+              </li>
+              <li class="flex items-center gap-4">
+                <span class="w-1.5 h-1.5 bg-[#A38A65] rounded-full"></span> Společné sociální zařízení (blízko)
+              </li>
+            </ul>
+            <div class="pt-6 border-t border-[#E8E6E1] flex items-center justify-between">
+              <div>
+                <span class="block text-[10px] uppercase tracking-widest text-[#8A9386] font-bold mb-1">Cena od</span>
+                 <span class="text-xl font-semibold text-[#1A2E24]">Cena na dotaz</span>
+              </div>
+              <a href="/ubytovani#chatky" class="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.1em] font-bold text-[#A38A65] hover:text-[#1A2E24] transition-colors">
+                Detail
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="w-full h-24 bg-gradient-to-b from-white to-[#E4F0F5]"></div>
+
+  <section class="py-16 md:py-24 bg-[#E4F0F5] relative" id="zazitky">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="text-center max-w-2xl mx-auto mb-20">
+        <span class="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.2em] uppercase text-[#4A7C73] mb-4">
+           <span class="w-4 h-[1px] bg-[#4A7C73]"></span>
+           Vybavení areálu
+           <span class="w-4 h-[1px] bg-[#4A7C73]"></span>
+        </span>
+        <h2 class="text-3xl md:text-5xl font-semibold text-[#1A2E24] tracking-tight mb-6">Víc než jen ubytování</h2>
+        <p class="text-[#4A5446] font-light leading-relaxed text-lg">
+          Náš areál je stvořený pro rodinnou pohodu. Vše, co potřebujete k dokonalé letní dovolené, máte přímo na dosah ruky.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+        
+        <div class="group p-8 rounded-sm bg-white border border-white hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl hover:shadow-[#4A7C73]/20">
+          <div class="w-16 h-16 rounded-full bg-[#4A7C73]/10 flex items-center justify-center mb-6 group-hover:bg-[#4A7C73] transition-colors duration-300">
+            <svg class="w-7 h-7 text-[#4A7C73] group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 21c3 0 7-1.5 10-1.5s7 1.5 10 1.5M3 15c3 0 7-1.5 10-1.5s7 1.5 10 1.5M4 11h16M8 11V5a2 2 0 012-2h4a2 2 0 012 2v6"></path></svg>
+          </div>
+          <h3 class="text-xl font-semibold text-[#1A2E24] mb-3">Voda a relaxace</h3>
+          <p class="text-[#6B7264] text-sm leading-relaxed font-light">
+            Přístup k vodě máte jen pár minut chůze. K dispozici jsou lodičky pro hosty a travnaté plochy pro váš odpočinek.
+          </p>
+        </div>
+
+        <div class="group p-8 rounded-sm bg-white border border-white hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl hover:shadow-[#BA6D52]/20">
+          <div class="w-16 h-16 rounded-full bg-[#BA6D52]/10 flex items-center justify-center mb-6 group-hover:bg-[#BA6D52] transition-colors duration-300">
+            <svg class="w-7 h-7 text-[#BA6D52] group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          </div>
+          <h3 class="text-xl font-semibold text-[#1A2E24] mb-3">Ráj pro děti</h3>
+          <p class="text-[#6B7264] text-sm leading-relaxed font-light">
+            Bezpečný, udržovaný areál s dětským hřištěm, pískovištěm a spoustou prostoru pro bezstarostné běhání.
+          </p>
+        </div>
+
+        <div class="group p-8 rounded-sm bg-white border border-white hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl hover:shadow-[#D49A44]/20">
+          <div class="w-16 h-16 rounded-full bg-[#D49A44]/10 flex items-center justify-center mb-6 group-hover:bg-[#D49A44] transition-colors duration-300">
+            <svg class="w-7 h-7 text-[#D49A44] group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"></path></svg>
+          </div>
+          <h3 class="text-xl font-semibold text-[#1A2E24] mb-3">Večery u ohně</h3>
+          <p class="text-[#6B7264] text-sm leading-relaxed font-light">
+            Co by to bylo za léto bez opékání špekáčků? K dispozici je posezení u ohniště i gril pro vaše kulinářské zážitky.
+          </p>
+        </div>
+
+        <div class="group p-8 rounded-sm bg-white border border-white hover:-translate-y-2 transition-all duration-300 hover:shadow-2xl hover:shadow-[#3B5A46]/20">
+          <div class="w-16 h-16 rounded-full bg-[#3B5A46]/10 flex items-center justify-center mb-6 group-hover:bg-[#3B5A46] transition-colors duration-300">
+            <svg class="w-7 h-7 text-[#3B5A46] group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          </div>
+          <h3 class="text-xl font-semibold text-[#1A2E24] mb-3">Výlety a sport</h3>
+          <p class="text-[#6B7264] text-sm leading-relaxed font-light">
+            Ideální výchozí bod pro objevování Slapů. Nabízíme bezpečné uschování kol a tipy na nejlepší výlety po okolí.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="mt-16 text-center">
+        <a href="/aktivity" class="inline-flex items-center gap-3 px-8 py-4 bg-[#4A7C73] text-white text-[12px] uppercase tracking-widest font-bold hover:bg-[#38625A] transition-colors duration-300 rounded-sm shadow-lg shadow-[#4A7C73]/20">
+          Prozkoumat kompletní sportovní možnosti
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="w-full h-24 bg-gradient-to-b from-[#E4F0F5] to-[#EBF2E1]"></div>
+
+  <section class="py-16 md:py-24 bg-[#EBF2E1]">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
+        <div class="max-w-xl">
+          <span class="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.2em] uppercase text-[#4A7C73] mb-4">
+            Kam v okolí?
+          </span>
+          <h2 class="text-3xl md:text-4xl font-semibold text-[#1A2E24] tracking-tight">Naplánujte si své <br/> slapské dobrodružství</h2>
+        </div>
+        <div>
+          <a href="/aktivity" class="inline-flex items-center gap-2 text-[12px] uppercase tracking-widest font-bold text-[#1A2E24] border-b-2 border-[#4A7C73] pb-1 hover:text-[#4A7C73] transition-all">
+            Zobrazit všechny výlety
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        
+        <a href="/aktivity#voda" class="group relative block aspect-[4/5] overflow-hidden rounded-sm bg-[#1A2E24] shadow-xl shadow-[#1A2E24]/10">
+          <div class="absolute inset-0 bg-[#15241C] flex flex-col items-center justify-center opacity-80 group-hover:scale-110 transition-transform duration-700">
+             <svg class="w-12 h-12 text-[#6B7264] mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M3 21c3 0 7-1.5 10-1.5s7 1.5 10 1.5M3 15c3 0 7-1.5 10-1.5s7 1.5 10 1.5M4 11h16M8 11V5a2 2 0 012-2h4a2 2 0 012 2v6"></path></svg>
+             <span class="text-[10px] uppercase tracking-widest text-[#6B7264]">Foto: Parník nebo voda</span>
+          </div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0A120E] via-transparent to-transparent opacity-80"></div>
+          <div class="absolute bottom-8 left-8 right-8">
+            <h3 class="text-xl font-bold text-white mb-2 uppercase tracking-wider group-hover:text-[#A38A65] transition-colors">Po vodě i pěšky</h3>
+            <p class="text-white/60 text-xs font-light leading-relaxed">Parníkem přímo od pláže, nebo naší lodičkou do oblíbeného Aquaparku Měřín.</p>
+          </div>
+        </a>
+
+        <a href="/aktivity#zábava" class="group relative block aspect-[4/5] overflow-hidden rounded-sm bg-[#1A2E24] shadow-xl shadow-[#1A2E24]/10">
+          <div class="absolute inset-0 bg-[#15241C] flex flex-col items-center justify-center opacity-80 group-hover:scale-110 transition-transform duration-700">
+             <svg class="w-12 h-12 text-[#6B7264] mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"></path></svg>
+             <span class="text-[10px] uppercase tracking-widest text-[#6B7264]">Foto: Lanový park</span>
+          </div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0A120E] via-transparent to-transparent opacity-80"></div>
+          <div class="absolute bottom-8 left-8 right-8">
+            <h3 class="text-xl font-bold text-white mb-2 uppercase tracking-wider group-hover:text-[#A38A65] transition-colors">Rodinná zábava</h3>
+            <p class="text-white/60 text-xs font-light leading-relaxed">Největší lanový park na Slapech a luštění šifer v TEPfaktoru pro malé i velké.</p>
+          </div>
+        </a>
+
+        <a href="/aktivity#pamatky" class="group relative block aspect-[4/5] overflow-hidden rounded-sm bg-[#1A2E24] shadow-xl shadow-[#1A2E24]/10">
+          <div class="absolute inset-0 bg-[#15241C] flex flex-col items-center justify-center opacity-80 group-hover:scale-110 transition-transform duration-700">
+             <svg class="w-12 h-12 text-[#6B7264] mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+             <span class="text-[10px] uppercase tracking-widest text-[#6B7264]">Foto: Zámek Konopiště</span>
+          </div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0A120E] via-transparent to-transparent opacity-80"></div>
+          <div class="absolute bottom-8 left-8 right-8">
+            <h3 class="text-xl font-bold text-white mb-2 uppercase tracking-wider group-hover:text-[#A38A65] transition-colors">Výlety do okolí</h3>
+            <p class="text-white/60 text-xs font-light leading-relaxed">Zámky Konopiště a Dobříš, hrad Karlštejn nebo návštěva Svaté Hory.</p>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="w-full h-24 bg-gradient-to-b from-[#EBF2E1] to-white"></div>
+
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="text-center max-w-2xl mx-auto mb-20">
+        <span class="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.2em] uppercase text-[#A38A65] mb-4">
+           <span class="w-4 h-[1px] bg-[#A38A65]"></span>
+           Atmosféra u nás
+           <span class="w-4 h-[1px] bg-[#A38A65]"></span>
+        </span>
+        <h2 class="text-3xl md:text-5xl font-semibold text-[#1A2E24] tracking-tight mb-6">Život na Hrdličce</h2>
+        <p class="text-[#4A5446] font-light leading-relaxed text-lg">
+          Nahlédněte do našeho světa. Zachytili jsme pro vás momenty pohody, přírody a radosti, které u nás zažijete.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+        
+        <div class="relative group col-span-2 row-span-2 aspect-[1/1] overflow-hidden rounded-sm bg-[#EAE8E3] border border-[#E8E6E1] flex items-center justify-center shadow-lg shadow-[#1A2E24]/5">
+           <div class="text-center group-hover:scale-110 transition-transform duration-700">
+              <svg class="w-16 h-16 text-[#C1BCB3] mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+              <p class="text-[#A5A096] text-xs font-bold uppercase tracking-widest px-4">Celkový pohled na areál v zeleni</p>
+           </div>
+           <div class="absolute inset-0 bg-[#0A120E]/30 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        </div>
+
+        <div class="relative group aspect-square overflow-hidden rounded-sm bg-[#EAE8E3] border border-[#E8E6E1] flex items-center justify-center">
+           <div class="text-center group-hover:scale-110 transition-transform duration-700">
+              <svg class="w-10 h-10 text-[#C1BCB3] mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+              <p class="text-[#A5A096] text-[9px] font-bold uppercase tracking-widest px-2">Interiér apartmánu</p>
+           </div>
+        </div>
+
+        <div class="relative group aspect-square overflow-hidden rounded-sm bg-[#EAE8E3] border border-[#E8E6E1] flex items-center justify-center">
+           <div class="text-center group-hover:scale-110 transition-transform duration-700">
+              <svg class="w-10 h-10 text-[#C1BCB3] mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+              <p class="text-[#A5A096] text-[9px] font-bold uppercase tracking-widest px-2">Ranní káva na terase</p>
+           </div>
+        </div>
+
+        <div class="relative group aspect-square overflow-hidden rounded-sm bg-[#EAE8E3] border border-[#E8E6E1] flex items-center justify-center">
+           <div class="text-center group-hover:scale-110 transition-transform duration-700">
+              <svg class="w-10 h-10 text-[#C1BCB3] mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+              <p class="text-[#A5A096] text-[9px] font-bold uppercase tracking-widest px-2">Západ slunce u vody</p>
+           </div>
+        </div>
+
+        <div class="relative group aspect-square overflow-hidden rounded-sm bg-[#EAE8E3] border border-[#E8E6E1] flex items-center justify-center col-span-2 md:col-span-1">
+           <div class="text-center group-hover:scale-110 transition-transform duration-700">
+              <svg class="w-10 h-10 text-[#C1BCB3] mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+              <p class="text-[#A5A096] text-[9px] font-bold uppercase tracking-widest px-2">Děti si hrají v bazénu</p>
+             </div>
+        </div>
+
+        <div class="relative group aspect-square overflow-hidden rounded-sm bg-[#EAE8E3] border border-[#E8E6E1] flex items-center justify-center col-span-2 md:col-span-1">
+           <div class="text-center group-hover:scale-110 transition-transform duration-700">
+              <svg class="w-10 h-10 text-[#C1BCB3] mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+              <p class="text-[#A5A096] text-[9px] font-bold uppercase tracking-widest px-2">Večerní grilování</p>
+           </div>
+        </div>
+
+      </div>
+
+      <div class="mt-16 text-center">
+        <a href="/galerie" class="inline-flex items-center gap-3 px-8 py-4 bg-[#1A2E24] text-white text-[12px] uppercase tracking-widest font-bold hover:bg-[#A38A65] transition-colors duration-300 rounded-sm shadow-lg shadow-[#1A2E24]/10">
+          Zobrazit celou galerii
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="relative py-16 md:py-24 bg-[#1A2E24] overflow-hidden">
+    
+    <div class="absolute inset-0 opacity-5 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent"></div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-16 items-center">
+      
+      <div>
+        <span class="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.2em] uppercase text-[#D4C3A3] mb-6">
+           <span class="w-6 h-[1px] bg-[#D4C3A3]"></span>
+           Kde nás najdete
+        </span>
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-semibold text-white tracking-tight mb-8 leading-[1.2]">
+          Klidná osada Hrdlička, <br />
+          <span class="text-[#A38A65]">daleko od starostí.</span>
+        </h2>
+        <p class="text-[#9EA8A1] font-light leading-relaxed text-lg mb-10 max-w-lg">
+          Naše apartmány a chatky se nachází v obci Čím, v těsné blízkosti Slapské přehrady. Je to ideální místo pro ty, kteří chtějí utéct z města, dýchat čerstvý vzduch a mít přírodu doslova za dveřmi.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-5">
+          <a href="/kontakt" class="bg-[#A38A65] text-white px-8 py-3.5 rounded-sm text-[12px] uppercase tracking-[0.15em] font-semibold hover:bg-[#8B7351] hover:-translate-y-0.5 transition-all duration-300 text-center shadow-lg shadow-[#0A120E]/50">
+            Kudy k nám
+          </a>
+          <a href="tel:+420777121663" class="px-8 py-3.5 rounded-sm text-[12px] uppercase tracking-[0.15em] font-semibold text-white border border-white/20 hover:bg-white/10 transition-all duration-300 text-center">
+            Zavolejte nám
+          </a>
+        </div>
+      </div>
+
+      <div class="relative h-[400px] w-full rounded-sm overflow-hidden border border-white/10 shadow-2xl shadow-[#0A120E]">
+        <div class="absolute inset-0 bg-[#0A120E]/20"></div>
+        <div class="w-full h-full bg-[#15241C] flex flex-col items-center justify-center">
+          <svg class="w-12 h-12 text-[#284235] mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
+          <span class="text-[#4A5446] text-[10px] uppercase tracking-widest font-bold">Zde bude interaktivní mapa nebo letecká fotka</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</Layout>

@@ -1,0 +1,159 @@
+---
+// src/layouts/Layout.astro
+import '../styles/global.css';
+---
+
+<html lang="cs" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Malá Hrdlička | Ubytování Slapy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-[#F9F8F6] text-[#2C3329] font-['Outfit',sans-serif] flex flex-col min-h-screen">
+    
+    <header class="bg-[#F9F8F6]/90 backdrop-blur-md sticky top-0 z-50 border-b border-[#E8E6E1]">
+      <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center relative">
+        
+        <a href="/" class="flex flex-col group z-10">
+          <span class="text-xl font-bold tracking-tight text-[#1A2E24] group-hover:text-[#A38A65] transition-colors">MALÁ HRDLIČKA</span>
+          <span class="text-[9px] uppercase tracking-[0.3em] font-bold text-[#A38A65]">Apartmány & Chatky</span>
+        </a>
+
+        <nav class="hidden lg:flex items-center gap-8 xl:gap-10">
+          <a href="/" class="text-[12px] uppercase tracking-widest font-semibold text-[#4A5446] hover:text-[#A38A65] transition">Úvod</a>
+          <a href="/o-nas" class="text-[12px] uppercase tracking-widest font-semibold text-[#4A5446] hover:text-[#A38A65] transition">O areálu</a>
+          
+          <div class="relative group py-8"> <a href="/ubytovani" class="flex items-center gap-1.5 text-[12px] uppercase tracking-widest font-semibold text-[#4A5446] group-hover:text-[#A38A65] transition">
+              Ubytování
+              <svg class="w-3.5 h-3.5 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </a>
+            
+            <div class="absolute top-full left-0 w-56 bg-white border border-[#E8E6E1] shadow-xl shadow-[#1A2E24]/5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 rounded-sm z-50">
+              <div class="py-2 flex flex-col">
+                <a href="/ubytovani#apartmany" class="px-5 py-3 text-[11px] uppercase tracking-widest font-semibold text-[#4A5446] hover:text-[#A38A65] hover:bg-[#F9F8F6] transition">Zděné apartmány</a>
+                <a href="/ubytovani#chatky" class="px-5 py-3 text-[11px] uppercase tracking-widest font-semibold text-[#4A5446] hover:text-[#A38A65] hover:bg-[#F9F8F6] transition">Dřevěné chatky</a>
+              </div>
+            </div>
+          </div>
+
+          <a href="/aktivity" class="text-[12px] uppercase tracking-widest font-semibold text-[#4A5446] hover:text-[#A38A65] transition">Aktivity</a>
+          <a href="/galerie" class="text-[12px] uppercase tracking-widest font-semibold text-[#4A5446] hover:text-[#A38A65] transition">Galerie</a>
+          <a href="/cenik" class="text-[12px] uppercase tracking-widest font-semibold text-[#4A5446] hover:text-[#A38A65] transition">Ceník</a>
+          <a href="/kontakt" class="text-[12px] uppercase tracking-widest font-semibold text-[#4A5446] hover:text-[#A38A65] transition">Kontakt</a>
+        </nav>
+
+        <div class="hidden lg:block z-10">
+          <a href="/kontakt" class="bg-[#1A2E24] text-[#F9F8F6] px-8 py-3 rounded-sm text-[11px] uppercase tracking-[0.2em] font-semibold hover:bg-[#A38A65] hover:-translate-y-0.5 transition-all duration-300 shadow-sm">
+            Rezervovat
+          </a>
+        </div>
+
+        <button id="mobile-menu-btn" class="lg:hidden text-[#1A2E24] p-2 focus:outline-none z-10">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 8h16M4 16h16"></path></svg>
+        </button>
+
+      </div>
+
+      <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-[#F9F8F6] border-b border-[#E8E6E1] shadow-2xl lg:hidden max-h-[80vh] overflow-y-auto">
+        <nav class="flex flex-col px-6 py-8 space-y-6">
+          <a href="/" class="mobile-link text-[14px] uppercase tracking-widest font-semibold text-[#1A2E24]">Úvod</a>
+          <a href="/o-nas" class="mobile-link text-[14px] uppercase tracking-widest font-semibold text-[#1A2E24]">O areálu</a>
+          
+          <div class="flex flex-col space-y-4">
+            <a href="/ubytovani" class="mobile-link text-[14px] uppercase tracking-widest font-semibold text-[#1A2E24]">Ubytování</a>
+            <div class="pl-4 flex flex-col space-y-4 border-l-2 border-[#E8E6E1] ml-2">
+               <a href="/ubytovani#apartmany" class="mobile-link text-[11px] uppercase tracking-widest font-semibold text-[#6B7264] hover:text-[#A38A65] transition-colors">Zděné apartmány</a>
+               <a href="/ubytovani#chatky" class="mobile-link text-[11px] uppercase tracking-widest font-semibold text-[#6B7264] hover:text-[#A38A65] transition-colors">Dřevěné chatky</a>
+            </div>
+          </div>
+
+          <a href="/aktivity" class="mobile-link text-[14px] uppercase tracking-widest font-semibold text-[#1A2E24]">Aktivity a okolí</a>
+          <a href="/galerie" class="mobile-link text-[14px] uppercase tracking-widest font-semibold text-[#1A2E24]">Galerie</a>
+          <a href="/cenik" class="mobile-link text-[14px] uppercase tracking-widest font-semibold text-[#1A2E24]">Ceník</a>
+          <a href="/kontakt" class="mobile-link text-[14px] uppercase tracking-widest font-semibold text-[#1A2E24]">Kontakt</a>
+          
+          <div class="pt-4 mt-4 border-t border-[#E8E6E1]">
+            <a href="/kontakt" class="mobile-link block bg-[#1A2E24] text-white px-6 py-4 rounded-sm text-center text-[12px] uppercase tracking-[0.2em] font-semibold hover:bg-[#A38A65] transition-colors">
+              Rezervovat ubytování
+            </a>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main class="flex-grow">
+      <slot />
+    </main>
+
+    <footer class="bg-[#15241C] text-[#9EA8A1] py-20 px-6 mt-auto">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-16">
+        
+        <div>
+          <span class="text-2xl font-bold tracking-tight text-white mb-2 block">Malá Hrdlička</span>
+          <p class="text-sm leading-relaxed font-light mt-6 text-[#8A9386]">
+            Zastavte se a nadechněte. Útulné ubytování v objetí lesů, jen pár kroků od břehu Slapské přehrady.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="text-white text-[10px] uppercase tracking-[0.2em] font-bold mb-8 text-[#A38A65]">Objevte</h4>
+          <ul class="space-y-4 text-[13px]">
+            <li><a href="/#nabidka" class="hover:text-white transition">Naše ubytování</a></li>
+            <li><a href="/cenik" class="hover:text-white transition">Ceník a služby</a></li>
+            <li><a href="/kontakt" class="hover:text-white transition">Kde nás najdete</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-white text-[10px] uppercase tracking-[0.2em] font-bold mb-8 text-[#A38A65]">Kontakt</h4>
+          <ul class="space-y-4 text-[13px]">
+            <li class="flex flex-col gap-1">
+              <span class="text-white font-medium">Osada Hrdlička, Čím</span>
+              <span class="text-[#8A9386]">Slapská přehrada</span>
+            </li>
+            <li class="flex flex-col gap-1 mt-4">
+              <a href="tel:+420777121663" class="text-white text-lg font-semibold hover:text-[#A38A65] transition">+420 777 121 663</a>
+              <a href="mailto:pajula@volny.cz" class="hover:text-white transition">pajula@volny.cz</a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-white text-[10px] uppercase tracking-[0.2em] font-bold mb-8 text-[#A38A65]">Sezóna</h4>
+          <p class="text-[13px] leading-relaxed text-[#8A9386]">
+            Těšíme se na vás od<br/>
+            <span class="text-white font-semibold text-lg">června do října</span>
+          </p>
+        </div>
+
+      </div>
+
+      <div class="max-w-7xl mx-auto mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[11px] uppercase tracking-widest text-[#6B7264]">
+         <p>© {new Date().getFullYear()} Apartmány Malá Hrdlička</p>
+      </div>
+    </footer>
+
+    <script>
+      // Tento script obsluhuje mobilní menu
+      document.addEventListener('DOMContentLoaded', () => {
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const links = document.querySelectorAll('.mobile-link');
+
+        // Otevření/zavření po kliknutí na hamburger ikonu
+        btn.addEventListener('click', () => {
+          menu.classList.toggle('hidden');
+        });
+
+        // Automatické zavření menu po kliknutí na jakýkoliv odkaz
+        links.forEach(link => {
+          link.addEventListener('click', () => {
+            menu.classList.add('hidden');
+          });
+        });
+      });
+    </script>
+
+  </body>
+</html>
