@@ -8,8 +8,38 @@ const pageDescription = 'Vyberte si ubytování v našem areálu na Slapech. Nab
 
 <Layout title={pageTitle} description={pageDescription}>
   <main>
+    <section class="relative pt-20 pb-16 lg:pt-32 lg:pb-24 bg-[#4F7942] overflow-hidden">
+      <div class="absolute -top-24 -left-24 w-96 h-96 bg-[#C5A059]/20 rounded-full blur-[100px] pointer-events-none"></div>
+      <div class="absolute top-1/2 right-0 w-64 h-64 bg-white/5 rounded-full blur-[80px] pointer-events-none"></div>
+
+      <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: url('https://www.transparenttextures.com/patterns/natural-paper.png');"></div>
+
+      <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+        <span class="text-[#EFEBE0] text-[11px] font-bold tracking-[0.4em] uppercase mb-4 block opacity-80"> Ubytování u Slapů </span>
+
+        <h1 class="text-4xl md:text-6xl font-black text-white tracking-tight leading-tight mb-6">
+          Vaše letní <span class="text-[#C5A059]">útočiště</span>
+        </h1>
+
+        <p class="text-[#EFEBE0]/90 text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed italic">Vyberte si mezi komfortním zděným apartmánem nebo klasickou letní chatkou. Z obojího to máte k vodě jen pár kroků.</p>
+
+        <div class="mt-10 flex justify-center items-center gap-4 opacity-30">
+          <div class="w-12 h-[1px] bg-white"></div>
+          <div class="w-2 h-2 rounded-full border border-white"></div>
+          <div class="w-12 h-[1px] bg-white"></div>
+        </div>
+      </div>
+    </section>
     <section id="apartmany" class="py-16 md:py-24 bg-[#EFEBE0] scroll-mt-20 overflow-hidden">
       <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 lg:mb-16 border-b border-[#1B4332]/10 pb-6">
+          <div>
+            <span class="text-[#C5A059] text-[11px] font-bold tracking-[0.3em] uppercase block mb-2">Možnost ubytování č. 1</span>
+            <h2 class="text-4xl md:text-5xl font-black text-[#1B4332] tracking-tight uppercase">Apartmány</h2>
+          </div>
+          <p class="text-[#5C6656] text-sm md:text-base font-light max-w-sm">Zděná budova, celoroční komfort a dokonalé zázemí pro rodiny.</p>
+        </div>
+
         <div class="grid lg:grid-cols-12 gap-12 lg:gap-20 items-stretch mb-16">
           <div class="lg:col-span-6 relative pb-12 lg:pb-0 h-full flex items-center">
             <div class="absolute top-4 left-4 w-full h-[95%] border-2 border-[#C5A059]/20 rounded-sm -z-10 hidden lg:block"></div>
@@ -30,7 +60,6 @@ const pageDescription = 'Vyberte si ubytování v našem areálu na Slapech. Nab
                     <div class="absolute bottom-2 right-2 bg-[#1B4332]/80 px-2 py-1 text-[8px] uppercase font-bold tracking-widest text-white">Terasa</div>
                   </div>
                 </div>
-
                 <div class="aspect-[4/3] sm:aspect-square bg-white p-3 sm:p-4 shadow-lg transform -rotate-1 hover:rotate-0 transition-transform duration-500">
                   <div class="w-full h-full bg-[#DEDACF] flex items-center justify-center border border-[#1B4332]/5 relative overflow-hidden group">
                     <svg class="w-8 h-8 sm:w-10 sm:h-10 text-[#C1BCB3] group-hover:scale-110 transition-transform duration-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
@@ -42,10 +71,10 @@ const pageDescription = 'Vyberte si ubytování v našem areálu na Slapech. Nab
           </div>
 
           <div class="lg:col-span-6 flex flex-col justify-center">
-            <h2 class="text-3xl md:text-5xl font-bold text-[#1B4332] mb-6 leading-tight">
-              Komfortní apartmány <br />
+            <h3 class="text-3xl md:text-5xl font-bold text-[#1B4332] mb-6 leading-tight">
+              Komfortní ubytování <br />
               <span class="text-[#C5A059]">s vlastní terasou</span>
-            </h2>
+            </h3>
 
             <div class="space-y-4 text-[#3A4535] font-light leading-relaxed text-[17px] mb-10">
               <p>
@@ -60,7 +89,7 @@ const pageDescription = 'Vyberte si ubytování v našem areálu na Slapech. Nab
             </div>
 
             <div class="bg-white p-6 sm:p-8 rounded-sm shadow-sm border-l-4 border-[#C5A059]">
-              <h3 class="text-xs font-bold uppercase tracking-widest text-[#1B4332] mb-6">Shrnutí vybavení</h3>
+              <h4 class="text-xs font-bold uppercase tracking-widest text-[#1B4332] mb-6">Shrnutí vybavení</h4>
 
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-8 gap-x-6">
                 <div class="flex items-start gap-4">
@@ -156,6 +185,191 @@ const pageDescription = 'Vyberte si ubytování v našem areálu na Slapech. Nab
         </div>
       </div>
     </section>
+
+    <section id="chatky" class="py-16 md:py-24 bg-white scroll-mt-20 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 lg:mb-16 border-b border-[#1B4332]/10 pb-6">
+          <div>
+            <span class="text-[#C5A059] text-[11px] font-bold tracking-[0.3em] uppercase block mb-2">Možnost ubytování č. 2</span>
+            <h2 class="text-4xl md:text-5xl font-black text-[#1B4332] tracking-tight uppercase">Dřevěné chaty</h2>
+          </div>
+          <p class="text-[#5C6656] text-sm md:text-base font-light max-w-sm">Klasická letní pohoda s vlastní verandou a krbovými kamny pro útulné večery.</p>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-12 lg:gap-20 items-stretch mb-16">
+          <div class="lg:col-span-6 flex flex-col justify-center order-2 lg:order-1">
+            <h3 class="text-3xl md:text-5xl font-bold text-[#1B4332] mb-6 leading-tight">
+              Pohodová dovolená <br />
+              <span class="text-[#C5A059]">s vůní dřeva</span>
+            </h3>
+
+            <div class="space-y-4 text-[#3A4535] font-light leading-relaxed text-[17px] mb-10">
+              <p>Užijte si pobyt ve čtyřech plně vybavených dřevěných chatách. Každá chata disponuje příjemnou verandou se stolem a posezením, která je jako stvořená pro vaši ranní kávu i večerní relaxaci na čerstvém vzduchu. Zaručujeme vám dostatek soukromí i bezplatné parkování přímo u objektu.</p>
+              <p>
+                Interiér tvoří obytná kuchyně se dvěma lůžky a samostatná ložnice se třemi lůžky (z nichž jedno je řešeno formou palandy). K dispozici je dřez s teplou a studenou vodou, lednice a elektrický vařič. O jedinečnou atmosféru v chladnějších dnech se postarají <strong>kamna na tuhá paliva</strong>.
+              </p>
+              <p>
+                Sociální zázemí je řešeno velmi prakticky – umývárny a sprchové kouty jsou k dispozici po celý den ve zděné budově vzdálené přibližně 20 metrů. V této budově má navíc každá chata <strong>své vlastní uzamykatelné WC</strong>.
+              </p>
+            </div>
+
+            <div class="bg-[#EFEBE0]/30 p-6 sm:p-8 rounded-sm shadow-sm border-l-4 border-[#C5A059]">
+              <h4 class="text-xs font-bold uppercase tracking-widest text-[#1B4332] mb-6">Shrnutí vybavení</h4>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-8 gap-x-6">
+                <div class="flex items-start gap-4">
+                  <div class="w-10 h-10 bg-[#4F7942]/10 rounded-full flex shrink-0 items-center justify-center text-[#4F7942]">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                  </div>
+                  <div>
+                    <p class="text-[10px] uppercase font-bold text-[#C5A059] tracking-wider mb-1">Až pro 5 osob</p>
+                    <p class="text-[#1B4332] font-bold text-sm mb-1">Obytná kuchyně + Ložnice</p>
+                    <p class="text-[#5C6656] text-xs leading-snug">Dvě lůžka v kuchyni, tři lůžka v ložnici (vč. palandy).</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-4">
+                  <div class="w-10 h-10 bg-[#4F7942]/10 rounded-full flex shrink-0 items-center justify-center text-[#4F7942]">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                  </div>
+                  <div>
+                    <p class="text-[10px] uppercase font-bold text-[#C5A059] tracking-wider mb-1">Odpočinek</p>
+                    <p class="text-[#1B4332] font-bold text-sm mb-1">Veranda s posezením</p>
+                    <p class="text-[#5C6656] text-xs leading-snug">Ideální místo pro ranní kávu nebo večerní relax.</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-4">
+                  <div class="w-10 h-10 bg-[#4F7942]/10 rounded-full flex shrink-0 items-center justify-center text-[#4F7942]">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.879 16.121A3 3 0 1012.015 11L11 14H9c0 .768.293 1.536.879 2.121z"></path></svg>
+                  </div>
+                  <div>
+                    <p class="text-[10px] uppercase font-bold text-[#C5A059] tracking-wider mb-1">Příjemné teplo</p>
+                    <p class="text-[#1B4332] font-bold text-sm mb-1">Kamna na tuhá paliva</p>
+                    <p class="text-[#5C6656] text-xs leading-snug">Dodají vašemu pobytu kouzlo i v chladnějších letních dnech.</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-4">
+                  <div class="w-10 h-10 bg-[#4F7942]/10 rounded-full flex shrink-0 items-center justify-center text-[#4F7942]">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"></path></svg>
+                  </div>
+                  <div>
+                    <p class="text-[10px] uppercase font-bold text-[#C5A059] tracking-wider mb-1">Hygiena</p>
+                    <p class="text-[#1B4332] font-bold text-sm mb-1">Vlastní uzamykatelné WC</p>
+                    <p class="text-[#5C6656] text-xs leading-snug">Umístěno cca 20 m ve zděné budově spolu s umývárnami.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-6 relative pb-12 lg:pb-0 h-full flex items-center order-1 lg:order-2">
+            <div class="absolute top-4 right-4 w-full h-[95%] border-2 border-[#C5A059]/20 rounded-sm -z-10 hidden lg:block"></div>
+            <div class="absolute -bottom-10 -right-10 w-72 h-72 bg-[#C5A059]/10 rounded-full -z-0 blur-3xl"></div>
+
+            <div class="w-full relative z-20 flex flex-col gap-8 sm:gap-12">
+              <div class="w-full aspect-[4/3] md:aspect-[3/2] bg-white p-3 sm:p-4 shadow-2xl transform rotate-1 hover:rotate-0 transition-transform duration-500 mx-auto">
+                <div class="w-full h-full bg-[#DEDACF] flex flex-col items-center justify-center border border-[#1B4332]/5 relative overflow-hidden group cursor-pointer">
+                  <svg class="w-12 h-12 sm:w-16 sm:h-16 text-[#C1BCB3] group-hover:scale-110 transition-transform duration-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                  <div class="absolute bottom-3 right-3 bg-white/90 px-3 py-1 text-[9px] sm:text-[10px] uppercase font-bold tracking-widest text-[#4F7942]">Chatka zvenku</div>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-2 gap-6 sm:gap-8 w-full mx-auto">
+                <div class="aspect-[4/3] sm:aspect-square bg-white p-3 sm:p-4 shadow-xl transform -rotate-2 hover:rotate-0 transition-transform duration-500">
+                  <div class="w-full h-full bg-[#C1BCB3] flex items-center justify-center border border-[#1B4332]/5 relative overflow-hidden group">
+                    <svg class="w-8 h-8 sm:w-10 sm:h-10 text-white/50 group-hover:scale-110 transition-transform duration-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    <div class="absolute bottom-2 left-2 bg-[#1B4332]/80 px-2 py-1 text-[8px] uppercase font-bold tracking-widest text-white">Interiér chaty</div>
+                  </div>
+                </div>
+                <div class="aspect-[4/3] sm:aspect-square bg-white p-3 sm:p-4 shadow-lg transform rotate-1 hover:rotate-0 transition-transform duration-500">
+                  <div class="w-full h-full bg-[#DEDACF] flex items-center justify-center border border-[#1B4332]/5 relative overflow-hidden group">
+                    <svg class="w-8 h-8 sm:w-10 sm:h-10 text-[#C1BCB3] group-hover:scale-110 transition-transform duration-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                    <div class="absolute bottom-2 right-2 bg-white/90 px-2 py-1 text-[8px] uppercase font-bold tracking-widest text-[#C5A059]">Krbová kamna</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative w-full">
+          <div class="flex items-center justify-between mb-6">
+            <h3 class="text-sm font-bold uppercase tracking-[0.2em] text-[#1B4332]">Prohlédněte si chatky</h3>
+
+            <a href="/galerie" class="hidden sm:inline-flex items-center gap-2 text-[11px] font-bold text-[#C5A059] uppercase tracking-widest hover:text-[#1B4332] transition-colors">
+              Všechny fotky
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            </a>
+          </div>
+
+          <button id="chat-prev" class="hidden lg:flex absolute left-[-24px] top-[60%] -translate-y-1/2 z-10 w-12 h-12 bg-white rounded-full shadow-lg border border-black/5 items-center justify-center text-[#1B4332] hover:bg-[#C5A059] hover:text-white transition-all">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+          </button>
+
+          <div id="chat-slider" class="flex gap-4 sm:gap-6 overflow-x-auto snap-x snap-mandatory pb-8 -mx-6 px-6 lg:mx-0 lg:px-0 scrollbar-hide scroll-smooth">
+            <div class="snap-start shrink-0 w-[85vw] sm:w-[45vw] lg:w-[350px] xl:w-[400px] aspect-[4/3] bg-[#F9F9F9] p-2 shadow-md border border-[#1B4332]/5">
+              <div class="w-full h-full bg-[#DEDACF] flex items-center justify-center text-xs font-bold text-[#1B4332]/40 uppercase tracking-widest">Obytná kuchyně</div>
+            </div>
+            <div class="snap-start shrink-0 w-[85vw] sm:w-[45vw] lg:w-[350px] xl:w-[400px] aspect-[4/3] bg-[#F9F9F9] p-2 shadow-md border border-[#1B4332]/5">
+              <div class="w-full h-full bg-[#DEDACF] flex items-center justify-center text-xs font-bold text-[#1B4332]/40 uppercase tracking-widest">Ložnice s palandou</div>
+            </div>
+            <div class="snap-start shrink-0 w-[85vw] sm:w-[45vw] lg:w-[350px] xl:w-[400px] aspect-[4/3] bg-[#F9F9F9] p-2 shadow-md border border-[#1B4332]/5">
+              <div class="w-full h-full bg-[#DEDACF] flex items-center justify-center text-xs font-bold text-[#1B4332]/40 uppercase tracking-widest">Veranda a posezení</div>
+            </div>
+            <div class="snap-start shrink-0 w-[85vw] sm:w-[45vw] lg:w-[350px] xl:w-[400px] aspect-[4/3] bg-[#F9F9F9] p-2 shadow-md border border-[#1B4332]/5">
+              <div class="w-full h-full bg-[#DEDACF] flex items-center justify-center text-xs font-bold text-[#1B4332]/40 uppercase tracking-widest">Krbová kamna</div>
+            </div>
+            <div class="snap-start shrink-0 w-[85vw] sm:w-[45vw] lg:w-[350px] xl:w-[400px] aspect-[4/3] bg-[#F9F9F9] p-2 shadow-md border border-[#1B4332]/5">
+              <div class="w-full h-full bg-[#DEDACF] flex items-center justify-center text-xs font-bold text-[#1B4332]/40 uppercase tracking-widest">Sociální zázemí</div>
+            </div>
+          </div>
+
+          <button id="chat-next" class="hidden lg:flex absolute right-[-24px] top-[60%] -translate-y-1/2 z-10 w-12 h-12 bg-white rounded-full shadow-lg border border-black/5 items-center justify-center text-[#1B4332] hover:bg-[#C5A059] hover:text-white transition-all">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+          </button>
+
+          <div class="mt-2 text-center sm:hidden">
+            <a href="/galerie" class="inline-flex items-center gap-2 text-[11px] font-bold text-[#C5A059] uppercase tracking-widest">
+              Zobrazit všechny fotky
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 md:py-32 bg-[#1B4332] relative overflow-hidden">
+      <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-[#2D5A27] rounded-full blur-[120px] opacity-40 -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
+      <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#C5A059] rounded-full blur-[100px] opacity-20 translate-y-1/3 -translate-x-1/4 pointer-events-none"></div>
+
+      <div class="max-w-4xl mx-auto px-6 relative z-10 text-center">
+        <span class="inline-flex items-center gap-3 text-[12px] font-bold tracking-[0.3em] uppercase text-[#C5A059] mb-6">
+          <span class="w-10 h-[1px] bg-[#C5A059]/50"></span>
+          Další krok
+          <span class="w-10 h-[1px] bg-[#C5A059]/50"></span>
+        </span>
+
+        <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+          Už víte, kde složíte <br class="hidden md:block" />
+          <span class="text-[#C5A059]">hlavu?</span>
+        </h2>
+
+        <p class="text-[#EFEBE0]/80 text-lg md:text-xl font-light mb-10 max-w-2xl mx-auto">Prohlédněte si naše ceny, zkontrolujte volné termíny a zajistěte si své místo pro dokonalou letní dovolenou u vody.</p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6">
+          <a href="/cenik" class="w-full sm:w-auto px-8 py-4 bg-[#C5A059] text-white text-sm font-bold uppercase tracking-widest hover:bg-[#b08d4b] transition-colors duration-300 rounded-sm shadow-lg shadow-[#C5A059]/20"> Ceník a rezervace </a>
+          <a href="/kontakt" class="w-full sm:w-auto px-8 py-4 bg-transparent text-white text-sm font-bold uppercase tracking-widest border border-white/30 hover:border-white hover:bg-white/5 transition-all duration-300 rounded-sm"> Mám dotaz </a>
+        </div>
+      </div>
+
+      <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] z-20 translate-y-[1px]">
+        <svg class="block w-full h-[40px] md:h-[80px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M0,0 C300,120 900,120 1200,0 L1200,120 L0,120 Z" fill="#4F7942"></path>
+        </svg>
+      </div>
+    </section>
   </main>
 </Layout>
 
@@ -171,18 +385,22 @@ const pageDescription = 'Vyberte si ubytování v našem areálu na Slapech. Nab
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const slider = document.getElementById('apt-slider');
-    const prevBtn = document.getElementById('apt-prev');
-    const nextBtn = document.getElementById('apt-next');
+    // Apartmány slider
+    const aptSlider = document.getElementById('apt-slider');
+    const aptPrev = document.getElementById('apt-prev');
+    const aptNext = document.getElementById('apt-next');
+    if (aptSlider && aptPrev && aptNext) {
+      aptPrev.addEventListener('click', () => aptSlider.scrollBy({ left: -420, behavior: 'smooth' }));
+      aptNext.addEventListener('click', () => aptSlider.scrollBy({ left: 420, behavior: 'smooth' }));
+    }
 
-    if (slider && prevBtn && nextBtn) {
-      // Při kliknutí odscrolujeme o šířku jednoho obrázku (cca 400px + mezera)
-      prevBtn.addEventListener('click', () => {
-        slider.scrollBy({ left: -420, behavior: 'smooth' });
-      });
-      nextBtn.addEventListener('click', () => {
-        slider.scrollBy({ left: 420, behavior: 'smooth' });
-      });
+    // Chatky slider
+    const chatSlider = document.getElementById('chat-slider');
+    const chatPrev = document.getElementById('chat-prev');
+    const chatNext = document.getElementById('chat-next');
+    if (chatSlider && chatPrev && chatNext) {
+      chatPrev.addEventListener('click', () => chatSlider.scrollBy({ left: -420, behavior: 'smooth' }));
+      chatNext.addEventListener('click', () => chatSlider.scrollBy({ left: 420, behavior: 'smooth' }));
     }
   });
 </script>
