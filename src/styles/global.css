@@ -1,2 +1,40 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
+.glightbox-clean .gslide-description,
+.glightbox-clean .gdesc-inner {
+  background-color: #1b4332 !important;
+  background: #1b4332 !important;
+}
+
+.glightbox-clean .gslide-title {
+  color: #c5a059 !important;
+  font-family: inherit !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.2em !important;
+  text-align: center !important;
+  margin-bottom: 0 !important;
+  padding: 10px 0 !important;
+}
+
+.glightbox-container .goverlay {
+  background: rgba(10, 18, 14, 0.95) !important;
+}
+
+/* Zabrání poskakování headeru při otevírání/zavírání lightboxu */
+.glightbox-open header {
+  /* Vynutíme, aby header zůstal na místě a nezkoušel se znovu vykreslovat */
+  position: fixed !important;
+  width: 100% !important;
+}
+
+/* Pokud tam máš nějaké přechody (transitions), tohle je při zavření vypne */
+body:not(.glightbox-open) header {
+  transition: none !important;
+}
+
+header {
+  /* Zajistí, že i fixní/sticky prvky budou respektovat rezervované místo pro posuvník */
+  padding-right: env(safe-area-inset-right);
+}
