@@ -4,6 +4,30 @@ import Layout from '../layouts/Layout.astro';
 // Definice metadat pro tuto konkrétní stránku
 const pageTitle = 'Ubytování | Areál Malá Hrdlička';
 const pageDescription = 'Vyberte si ubytování v našem areálu na Slapech. Nabízíme útulné chatky i komfortní apartmány v bezprostřední blízkosti přehrady, ideální pro rodiny s dětmi.';
+
+import { Image } from 'astro:assets';
+// Zde máš zbytek svých importů a Layout...
+
+// 1. Import fotek pro horní koláž
+import aptHlavni from '../assets/images/ubytovani/apartmany/hlavni.jpeg';
+import aptTerasa from '../assets/images/ubytovani/apartmany/terasa.jpeg';
+import aptInterier from '../assets/images/ubytovani/apartmany/interier.jpeg';
+
+// 2. Import fotek pro slider
+import aptSlider1 from '../assets/images/ubytovani/apartmany/slider1.jpeg';
+import aptSlider2 from '../assets/images/ubytovani/apartmany/slider2.jpeg';
+import aptSlider3 from '../assets/images/ubytovani/apartmany/slider3.jpeg';
+import aptSlider4 from '../assets/images/ubytovani/apartmany/slider4.jpg';
+import aptSlider5 from '../assets/images/ubytovani/apartmany/slider5.jpg';
+
+// 3. Příprava dat pro slider (zase "falešné CMS", které pak snadno vyměníme)
+const apartmanyGalerie = [
+  { obrazek: aptSlider1, popisek: 'Jídelna' },
+  { obrazek: aptSlider2, popisek: 'Kuchyňka' },
+  { obrazek: aptSlider3, popisek: 'Koupelna' },
+  { obrazek: aptSlider4, popisek: 'Terasa' },
+  { obrazek: aptSlider5, popisek: 'Ložnice' },
+];
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
@@ -46,24 +70,24 @@ const pageDescription = 'Vyberte si ubytování v našem areálu na Slapech. Nab
             <div class="absolute -bottom-10 -left-10 w-72 h-72 bg-[#C5A059]/10 rounded-full -z-0 blur-3xl"></div>
 
             <div class="w-full relative z-20 flex flex-col gap-8 sm:gap-12">
-              <div class="w-full aspect-[4/3] md:aspect-[3/2] bg-white p-3 sm:p-4 shadow-2xl transform -rotate-1 hover:rotate-0 transition-transform duration-500 mx-auto">
-                <div class="w-full h-full bg-[#DEDACF] flex flex-col items-center justify-center border border-[#1B4332]/5 relative overflow-hidden group cursor-pointer">
-                  <svg class="w-12 h-12 sm:w-16 sm:h-16 text-[#C1BCB3] group-hover:scale-110 transition-transform duration-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                  <div class="absolute bottom-3 left-3 bg-white/90 px-3 py-1 text-[9px] sm:text-[10px] uppercase font-bold tracking-widest text-[#4F7942]">Hlavní budova</div>
+              <div class="w-[85%] sm:w-[80%] md:w-[75%] lg:w-[85%] xl:w-[75%] aspect-[4/3] md:aspect-[3/2] bg-white p-3 sm:p-4 shadow-2xl transform -rotate-1 hover:rotate-0 transition-transform duration-500 mx-auto">
+                <div class="w-full h-full relative overflow-hidden group cursor-pointer bg-[#DEDACF]">
+                  <Image src={aptHlavni} alt="Hlavní budova apartmánů" widths={[400, 600, 800, 1200]} sizes="(min-width: 1280px) 440px, (min-width: 1024px) 370px, (min-width: 768px) 75vw, (min-width: 640px) 80vw, 85vw" quality={75} loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <div class="absolute bottom-3 left-3 bg-white/90 px-3 py-1 text-[9px] sm:text-[10px] uppercase font-bold tracking-widest text-[#4F7942] z-10">Hlavní budova</div>
                 </div>
               </div>
 
-              <div class="grid grid-cols-2 gap-6 sm:gap-8 w-full mx-auto">
-                <div class="aspect-[4/3] sm:aspect-square bg-white p-3 sm:p-4 shadow-xl transform rotate-2 hover:rotate-0 transition-transform duration-500">
-                  <div class="w-full h-full bg-[#C1BCB3] flex items-center justify-center border border-[#1B4332]/5 relative overflow-hidden group">
-                    <svg class="w-8 h-8 sm:w-10 sm:h-10 text-white/50 group-hover:scale-110 transition-transform duration-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
-                    <div class="absolute bottom-2 right-2 bg-[#1B4332]/80 px-2 py-1 text-[8px] uppercase font-bold tracking-widest text-white">Terasa</div>
+              <div class="grid grid-cols-2 gap-4 sm:gap-8 w-full mx-auto">
+                <div class="aspect-[3/4] sm:aspect-square bg-white p-3 sm:p-4 shadow-xl transform rotate-2 hover:rotate-0 transition-transform duration-500">
+                  <div class="w-full h-full relative overflow-hidden group bg-[#C1BCB3]">
+                    <Image src={aptTerasa} alt="Terasa apartmánu" widths={[300, 400, 600, 800]} sizes="(min-width: 1024px) 320px, (min-width: 640px) 45vw, 50vw" quality={75} loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                    <div class="absolute bottom-2 right-2 bg-[#1B4332]/80 px-2 py-1 text-[8px] uppercase font-bold tracking-widest text-white z-10">Terasa</div>
                   </div>
                 </div>
-                <div class="aspect-[4/3] sm:aspect-square bg-white p-3 sm:p-4 shadow-lg transform -rotate-1 hover:rotate-0 transition-transform duration-500">
-                  <div class="w-full h-full bg-[#DEDACF] flex items-center justify-center border border-[#1B4332]/5 relative overflow-hidden group">
-                    <svg class="w-8 h-8 sm:w-10 sm:h-10 text-[#C1BCB3] group-hover:scale-110 transition-transform duration-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                    <div class="absolute bottom-2 left-2 bg-white/90 px-2 py-1 text-[8px] uppercase font-bold tracking-widest text-[#C5A059]">Interiér</div>
+                <div class="aspect-[3/4] sm:aspect-square bg-white p-3 sm:p-4 shadow-lg transform -rotate-1 hover:rotate-0 transition-transform duration-500">
+                  <div class="w-full h-full relative overflow-hidden group bg-[#DEDACF]">
+                    <Image src={aptInterier} alt="Interiér apartmánu" widths={[300, 400, 600, 800]} sizes="(min-width: 1024px) 320px, (min-width: 640px) 45vw, 50vw" quality={75} loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                    <div class="absolute bottom-2 left-2 bg-white/90 px-2 py-1 text-[8px] uppercase font-bold tracking-widest text-[#C5A059] z-10">Interiér</div>
                   </div>
                 </div>
               </div>
@@ -150,29 +174,24 @@ const pageDescription = 'Vyberte si ubytování v našem areálu na Slapech. Nab
             </a>
           </div>
 
-          <button id="apt-prev" class="hidden lg:flex absolute left-[-24px] top-[60%] -translate-y-1/2 z-10 w-12 h-12 bg-white rounded-full shadow-lg border border-black/5 items-center justify-center text-[#1B4332] hover:bg-[#C5A059] hover:text-white transition-all">
+          <button id="apt-prev" aria-label="Předchozí fotka" class="hidden lg:flex absolute left-[-24px] top-[60%] -translate-y-1/2 z-10 w-12 h-12 bg-white rounded-full shadow-lg border border-black/5 items-center justify-center text-[#1B4332] hover:bg-[#C5A059] hover:text-white transition-all">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
           </button>
 
           <div id="apt-slider" class="flex gap-4 sm:gap-6 overflow-x-auto snap-x snap-mandatory pb-8 -mx-6 px-6 lg:mx-0 lg:px-0 scrollbar-hide scroll-smooth">
-            <div class="snap-start shrink-0 w-[85vw] sm:w-[45vw] lg:w-[350px] xl:w-[400px] aspect-[4/3] bg-white p-2 shadow-md">
-              <div class="w-full h-full bg-[#DEDACF] flex items-center justify-center text-xs font-bold text-[#1B4332]/40 uppercase tracking-widest border border-[#1B4332]/5">Interiér 1</div>
-            </div>
-            <div class="snap-start shrink-0 w-[85vw] sm:w-[45vw] lg:w-[350px] xl:w-[400px] aspect-[4/3] bg-white p-2 shadow-md">
-              <div class="w-full h-full bg-[#DEDACF] flex items-center justify-center text-xs font-bold text-[#1B4332]/40 uppercase tracking-widest border border-[#1B4332]/5">Kuchyňka</div>
-            </div>
-            <div class="snap-start shrink-0 w-[85vw] sm:w-[45vw] lg:w-[350px] xl:w-[400px] aspect-[4/3] bg-white p-2 shadow-md">
-              <div class="w-full h-full bg-[#DEDACF] flex items-center justify-center text-xs font-bold text-[#1B4332]/40 uppercase tracking-widest border border-[#1B4332]/5">Ložnice</div>
-            </div>
-            <div class="snap-start shrink-0 w-[85vw] sm:w-[45vw] lg:w-[350px] xl:w-[400px] aspect-[4/3] bg-white p-2 shadow-md">
-              <div class="w-full h-full bg-[#DEDACF] flex items-center justify-center text-xs font-bold text-[#1B4332]/40 uppercase tracking-widest border border-[#1B4332]/5">Terasa</div>
-            </div>
-            <div class="snap-start shrink-0 w-[85vw] sm:w-[45vw] lg:w-[350px] xl:w-[400px] aspect-[4/3] bg-white p-2 shadow-md">
-              <div class="w-full h-full bg-[#DEDACF] flex items-center justify-center text-xs font-bold text-[#1B4332]/40 uppercase tracking-widest border border-[#1B4332]/5">Koupelna</div>
-            </div>
+            {
+              apartmanyGalerie.map((foto) => (
+                <div class="snap-start shrink-0 w-[70vw] sm:w-[40vw] lg:w-[280px] xl:w-[320px] aspect-[4/3] bg-white p-2 shadow-md relative group">
+                  <div class="w-full h-full overflow-hidden bg-[#DEDACF]">
+                    <Image src={foto.obrazek} alt={`Galerie apartmánů - ${foto.popisek}`} widths={[300, 400, 600]} sizes="(min-width: 1280px) 320px, (min-width: 1024px) 280px, (min-width: 640px) 40vw, 70vw" quality={75} loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  </div>
+                  <div class="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 text-[10px] font-bold text-[#1B4332] uppercase tracking-widest shadow-sm">{foto.popisek}</div>
+                </div>
+              ))
+            }
           </div>
 
-          <button id="apt-next" class="hidden lg:flex absolute right-[-24px] top-[60%] -translate-y-1/2 z-10 w-12 h-12 bg-white rounded-full shadow-lg border border-black/5 items-center justify-center text-[#1B4332] hover:bg-[#C5A059] hover:text-white transition-all">
+          <button id="apt-next" aria-label="Další fotka" class="hidden lg:flex absolute right-[-24px] top-[60%] -translate-y-1/2 z-10 w-12 h-12 bg-white rounded-full shadow-lg border border-black/5 items-center justify-center text-[#1B4332] hover:bg-[#C5A059] hover:text-white transition-all">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
           </button>
 
@@ -269,21 +288,21 @@ const pageDescription = 'Vyberte si ubytování v našem areálu na Slapech. Nab
             <div class="absolute -bottom-10 -right-10 w-72 h-72 bg-[#C5A059]/10 rounded-full -z-0 blur-3xl"></div>
 
             <div class="w-full relative z-20 flex flex-col gap-8 sm:gap-12">
-              <div class="w-full aspect-[4/3] md:aspect-[3/2] bg-white p-3 sm:p-4 shadow-2xl transform rotate-1 hover:rotate-0 transition-transform duration-500 mx-auto">
+              <div class="w-[85%] sm:w-[80%] md:w-[75%] lg:w-[85%] xl:w-[75%] aspect-[4/3] md:aspect-[3/2] bg-white p-3 sm:p-4 shadow-2xl transform rotate-1 hover:rotate-0 transition-transform duration-500 mx-auto">
                 <div class="w-full h-full bg-[#DEDACF] flex flex-col items-center justify-center border border-[#1B4332]/5 relative overflow-hidden group cursor-pointer">
                   <svg class="w-12 h-12 sm:w-16 sm:h-16 text-[#C1BCB3] group-hover:scale-110 transition-transform duration-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
                   <div class="absolute bottom-3 right-3 bg-white/90 px-3 py-1 text-[9px] sm:text-[10px] uppercase font-bold tracking-widest text-[#4F7942]">Chatka zvenku</div>
                 </div>
               </div>
 
-              <div class="grid grid-cols-2 gap-6 sm:gap-8 w-full mx-auto">
-                <div class="aspect-[4/3] sm:aspect-square bg-white p-3 sm:p-4 shadow-xl transform -rotate-2 hover:rotate-0 transition-transform duration-500">
+              <div class="grid grid-cols-2 gap-4 sm:gap-8 w-full mx-auto">
+                <div class="aspect-[3/4] sm:aspect-square bg-white p-3 sm:p-4 shadow-xl transform -rotate-2 hover:rotate-0 transition-transform duration-500">
                   <div class="w-full h-full bg-[#C1BCB3] flex items-center justify-center border border-[#1B4332]/5 relative overflow-hidden group">
                     <svg class="w-8 h-8 sm:w-10 sm:h-10 text-white/50 group-hover:scale-110 transition-transform duration-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
                     <div class="absolute bottom-2 left-2 bg-[#1B4332]/80 px-2 py-1 text-[8px] uppercase font-bold tracking-widest text-white">Interiér chaty</div>
                   </div>
                 </div>
-                <div class="aspect-[4/3] sm:aspect-square bg-white p-3 sm:p-4 shadow-lg transform rotate-1 hover:rotate-0 transition-transform duration-500">
+                <div class="aspect-[3/4] sm:aspect-square bg-white p-3 sm:p-4 shadow-lg transform rotate-1 hover:rotate-0 transition-transform duration-500">
                   <div class="w-full h-full bg-[#DEDACF] flex items-center justify-center border border-[#1B4332]/5 relative overflow-hidden group">
                     <svg class="w-8 h-8 sm:w-10 sm:h-10 text-[#C1BCB3] group-hover:scale-110 transition-transform duration-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
                     <div class="absolute bottom-2 right-2 bg-white/90 px-2 py-1 text-[8px] uppercase font-bold tracking-widest text-[#C5A059]">Krbová kamna</div>
@@ -309,19 +328,19 @@ const pageDescription = 'Vyberte si ubytování v našem areálu na Slapech. Nab
           </button>
 
           <div id="chat-slider" class="flex gap-4 sm:gap-6 overflow-x-auto snap-x snap-mandatory pb-8 -mx-6 px-6 lg:mx-0 lg:px-0 scrollbar-hide scroll-smooth">
-            <div class="snap-start shrink-0 w-[85vw] sm:w-[45vw] lg:w-[350px] xl:w-[400px] aspect-[4/3] bg-[#F9F9F9] p-2 shadow-md border border-[#1B4332]/5">
+            <div class="snap-start shrink-0 w-[70vw] sm:w-[40vw] lg:w-[280px] xl:w-[320px] aspect-[4/3] bg-[#F9F9F9] p-2 shadow-md border border-[#1B4332]/5">
               <div class="w-full h-full bg-[#DEDACF] flex items-center justify-center text-xs font-bold text-[#1B4332]/40 uppercase tracking-widest">Obytná kuchyně</div>
             </div>
-            <div class="snap-start shrink-0 w-[85vw] sm:w-[45vw] lg:w-[350px] xl:w-[400px] aspect-[4/3] bg-[#F9F9F9] p-2 shadow-md border border-[#1B4332]/5">
+            <div class="snap-start shrink-0 w-[70vw] sm:w-[40vw] lg:w-[280px] xl:w-[320px] aspect-[4/3] bg-[#F9F9F9] p-2 shadow-md border border-[#1B4332]/5">
               <div class="w-full h-full bg-[#DEDACF] flex items-center justify-center text-xs font-bold text-[#1B4332]/40 uppercase tracking-widest">Ložnice s palandou</div>
             </div>
-            <div class="snap-start shrink-0 w-[85vw] sm:w-[45vw] lg:w-[350px] xl:w-[400px] aspect-[4/3] bg-[#F9F9F9] p-2 shadow-md border border-[#1B4332]/5">
+            <div class="snap-start shrink-0 w-[70vw] sm:w-[40vw] lg:w-[280px] xl:w-[320px] aspect-[4/3] bg-[#F9F9F9] p-2 shadow-md border border-[#1B4332]/5">
               <div class="w-full h-full bg-[#DEDACF] flex items-center justify-center text-xs font-bold text-[#1B4332]/40 uppercase tracking-widest">Veranda a posezení</div>
             </div>
-            <div class="snap-start shrink-0 w-[85vw] sm:w-[45vw] lg:w-[350px] xl:w-[400px] aspect-[4/3] bg-[#F9F9F9] p-2 shadow-md border border-[#1B4332]/5">
+            <div class="snap-start shrink-0 w-[70vw] sm:w-[40vw] lg:w-[280px] xl:w-[320px] aspect-[4/3] bg-[#F9F9F9] p-2 shadow-md border border-[#1B4332]/5">
               <div class="w-full h-full bg-[#DEDACF] flex items-center justify-center text-xs font-bold text-[#1B4332]/40 uppercase tracking-widest">Krbová kamna</div>
             </div>
-            <div class="snap-start shrink-0 w-[85vw] sm:w-[45vw] lg:w-[350px] xl:w-[400px] aspect-[4/3] bg-[#F9F9F9] p-2 shadow-md border border-[#1B4332]/5">
+            <div class="snap-start shrink-0 w-[70vw] sm:w-[40vw] lg:w-[280px] xl:w-[320px] aspect-[4/3] bg-[#F9F9F9] p-2 shadow-md border border-[#1B4332]/5">
               <div class="w-full h-full bg-[#DEDACF] flex items-center justify-center text-xs font-bold text-[#1B4332]/40 uppercase tracking-widest">Sociální zázemí</div>
             </div>
           </div>
