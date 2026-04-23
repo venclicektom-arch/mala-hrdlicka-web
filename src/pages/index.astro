@@ -2,11 +2,12 @@
 import Layout from '../layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import fotoArealu from '../assets/images/homepage/areal-mala-hrdlicka-slapy.jpeg';
-import fotoApartmanHlavni from '../assets/images/homepage/ubytovani-apartman-hlavni.jpeg';
-import fotoChatkaHlavni from '../assets/images/homepage/ubytovani-chatka-hlavni.jpeg';
+import fotoApartmanHlavni from '../assets/images/ubytovani/apartmany/hlavni.jpeg';
+import fotoChatkaHlavni from '../assets/images/ubytovani/chatky//ubytovani-chatka-hlavni.jpeg';
 import fotoBazen from '../assets/images/galerie/bazen-areal-slapy.jpeg';
 import fotoHriste from '../assets/images/galerie/detske-hriste-prolezacky.jpeg';
 import fotoVoda from '../assets/images/galerie/voda-slapy-paddleboardy.jpeg';
+import fotoSlapy from '../assets/images/homepage/slapska-prehrada-lode.jpeg';
 import fotoPosezeni from '../assets/images/galerie/venkovni-posezeni-relax.jpeg';
 import fotoOhniste from '../assets/images/galerie/ohniste-opekani-spekacku.jpeg';
 import fotoApartmanDetail from '../assets/images/galerie/ubytovani-apartman-detail.jpeg';
@@ -74,6 +75,7 @@ import fotoApartmanDetail from '../assets/images/galerie/ubytovani-apartman-deta
   <section class="py-16 md:py-24 bg-[#EFEBE0] overflow-hidden">
     <div class="max-w-7xl mx-auto px-6">
       <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <!-- LEVÁ STRANA — text -->
         <div class="relative z-10">
           <span class="inline-flex items-center gap-2 text-[11px] font-bold tracking-[0.2em] uppercase text-[#C5A059] mb-6"> Pár slov o nás </span>
           <h2 class="text-3xl md:text-5xl font-semibold text-[#1B4332] tracking-tight mb-6 leading-[1.2]">
@@ -135,21 +137,34 @@ import fotoApartmanDetail from '../assets/images/galerie/ubytovani-apartman-deta
           </div>
         </div>
 
+        <!-- PRAVÁ STRANA — tři fotky -->
         <div class="relative">
           <div class="absolute -top-10 -right-10 w-64 h-64 bg-[#E4DFC9] rounded-full -z-10 shadow-sm"></div>
 
-          <div class="aspect-[4/5] rounded-sm overflow-hidden border border-[#DEDACF] bg-[#EAE5D9] flex items-center justify-center relative group shadow-xl shadow-[#1B4332]/10">
-            <div class="relative w-full h-full overflow-hidden bg-[#DEDACF] border border-[#1B4332]/5">
-              <Image src={fotoArealu} alt="Letecký pohled na rekreační areál Malá Hrdlička u Slapské přehrady s bazénem" width={630} height={840} widths={[400, 630]} sizes="(max-width: 768px) 400px, 630px" quality={50} format="avif" loading="lazy" class="w-full h-full object-cover [backface-visibility:hidden] [transform:translateZ(0)]" />
-
-              <div class="absolute bottom-4 left-4 bg-black/40 backdrop-blur-md px-3 py-1 rounded-sm pointer-events-none">
+          <div class="flex flex-col gap-4">
+            <!-- Velká fotka nahoře -->
+            <div class="relative w-full aspect-[16/10] overflow-hidden border border-[#DEDACF] shadow-xl shadow-[#1B4332]/10 rounded-sm group">
+              <Image src={fotoArealu} alt="Letecký pohled na rekreační areál Malá Hrdlička u Slapské přehrady s bazénem" width={1168} height={730} widths={[400, 584, 800, 1168]} sizes="(max-width: 640px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 40px), 584px" format="avif" quality={65} loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 [backface-visibility:hidden] [transform:translateZ(0)]" />
+              <div class="absolute bottom-3 left-3 bg-black/40 backdrop-blur-md px-3 py-1 rounded-sm pointer-events-none">
                 <p class="text-white text-[10px] uppercase tracking-widest font-bold">Areál Malá Hrdlička</p>
               </div>
             </div>
 
-            <div class="absolute bottom-6 left-6 bg-[#4F7942] p-4 border border-[#C5A059]/30 hidden md:block shadow-lg">
-              <p class="text-[10px] uppercase tracking-[0.2em] font-bold text-[#C5A059] mb-1">Kapacita</p>
-              <p class="text-sm font-medium text-white">Komfort pro 48 hostů</p>
+            <!-- Dvě menší fotky vedle sebe -->
+            <div class="grid grid-cols-2 gap-4">
+              <div class="relative aspect-[4/3] overflow-hidden border border-[#DEDACF] shadow-lg shadow-[#1B4332]/8 rounded-sm group">
+                <Image src={fotoVoda} alt="Přístup k Slapské přehradě z areálu Malá Hrdlička" width={282} height={212} widths={[141, 282]} sizes="(max-width: 768px) calc(50vw - 32px), (max-width: 1024px) 22vw, 282px" format="avif" quality={60} loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 [backface-visibility:hidden] [transform:translateZ(0)]" />
+                <div class="absolute bottom-2 left-2 bg-black/40 backdrop-blur-md px-2 py-1 rounded-sm pointer-events-none">
+                  <p class="text-white text-[9px] uppercase tracking-widest font-bold">K vodě</p>
+                </div>
+              </div>
+
+              <div class="relative aspect-[4/3] overflow-hidden border border-[#DEDACF] shadow-lg shadow-[#1B4332]/8 rounded-sm group">
+                <Image src={fotoSlapy} alt="Lodě na Slapské přehradě v blízkosti areálu Malá Hrdlička" width={282} height={212} widths={[141, 282]} sizes="(max-width: 768px) calc(50vw - 32px), (max-width: 1024px) 22vw, 282px" format="avif" quality={60} loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 [backface-visibility:hidden] [transform:translateZ(0)]" />
+                <div class="absolute bottom-2 left-2 bg-black/40 backdrop-blur-md px-2 py-1 rounded-sm pointer-events-none">
+                  <p class="text-white text-[9px] uppercase tracking-widest font-bold">Slapská přehrada</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -171,9 +186,9 @@ import fotoApartmanDetail from '../assets/images/galerie/ubytovani-apartman-deta
 
       <div class="grid md:grid-cols-2 gap-10 lg:gap-16">
         <div class="group flex flex-col bg-white rounded-sm border border-[#E8E6E1] overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-[#1B4332]/15 hover:-translate-y-1">
-          <div class="relative h-72 w-full bg-[#EFEBE0] flex items-center justify-center overflow-hidden">
-            <div class="w-full h-full bg-[#DEDACF] border border-[#1B4332]/5 relative overflow-hidden">
-              <Image src={fotoApartmanHlavni} alt="Hlavní zděná budova s komfortními apartmány a terasami" width={672} height={504} widths={[400, 672]} sizes="(max-width: 768px) 400px, 672px" quality={50} format="avif" loading="lazy" class="w-full h-full object-cover [backface-visibility:hidden] [transform:translateZ(0)]" />
+          <div class="relative w-full aspect-[600/288] bg-[#EFEBE0] overflow-hidden">
+            <div class="w-full h-full bg-[#DEDACF] relative overflow-hidden">
+              <Image src={fotoApartmanHlavni} alt="Hlavní zděná budova s komfortními apartmány a terasami" width={600} height={288} widths={[360, 480, 600]} sizes="(max-width: 640px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 40px), 600px" format="avif" quality={50} loading="lazy" decoding="async" class="w-full h-full object-cover [backface-visibility:hidden] [transform:translateZ(0)]" />
 
               <div class="absolute bottom-3 left-3 bg-white/90 px-3 py-1 text-[9px] sm:text-[10px] uppercase font-bold tracking-widest text-[#4F7942] z-10 pointer-events-none">Hlavní budova</div>
             </div>
@@ -206,9 +221,9 @@ import fotoApartmanDetail from '../assets/images/galerie/ubytovani-apartman-deta
         </div>
 
         <div class="group flex flex-col bg-white rounded-sm border border-[#E8E6E1] overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-[#1B4332]/15 hover:-translate-y-1">
-          <div class="relative h-72 w-full bg-[#EFEBE0] flex items-center justify-center overflow-hidden">
-            <div class="relative h-72 w-full bg-[#EFEBE0] flex items-center justify-center overflow-hidden">
-              <Image src={fotoChatkaHlavni} alt="Dřevěná chatka s prostornou terasou v areálu Malá Hrdlička" width={672} height={504} widths={[400, 672]} sizes="(max-width: 768px) 400px, 672px" quality={50} format="avif" loading="lazy" class="w-full h-full object-cover [backface-visibility:hidden] [transform:translateZ(0)]" />
+          <div class="relative w-full aspect-[600/288] bg-[#EFEBE0] overflow-hidden">
+            <div class="w-full h-full relative overflow-hidden">
+              <Image src={fotoChatkaHlavni} alt="Dřevěná chatka s prostornou terasou v areálu Malá Hrdlička" width={600} height={288} widths={[360, 480, 600]} sizes="(max-width: 640px) calc(100vw - 48px), (max-width: 1024px) calc(50vw - 40px), 600px" format="avif" quality={50} loading="lazy" decoding="async" class="w-full h-full object-cover [backface-visibility:hidden] [transform:translateZ(0)]" />
 
               <div class="absolute bottom-3 left-3 bg-white/90 px-3 py-1 text-[9px] uppercase font-bold tracking-widest text-[#4F7942] z-10 pointer-events-none">Chatka a terasa</div>
             </div>
