@@ -1,0 +1,377 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// DATA ŠUPLÍK - Týdenní pobyty (pro CMS)
+const vikendovePobyty = [
+  {
+    nazev: 'Apartmány',
+    cena: '3 000 Kč',
+    doba: 'Pátek – Neděle',
+    podminka: 'Pouze vedlejší sezóna',
+    ikona: 'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6', // Ikonka domečku
+  },
+  {
+    nazev: 'Chaty',
+    cena: '2 100 Kč',
+    doba: 'Pátek – Neděle',
+    podminka: 'Pouze vedlejší sezóna',
+    ikona: 'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6', // Ikonka domečku (případně můžeme dát stromek)
+  },
+];
+
+// DATA ŠUPLÍK - Doplňkové služby
+const doplnkoveSluzby = [
+  {
+    nazev: 'Přistýlka',
+    cena: '100 Kč',
+    jednotka: 'osoba / noc',
+    popis: 'Cena za přistýlku za jednu osobu a noc.',
+    ikona: 'M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z', // Ikona osob
+  },
+  {
+    nazev: 'Pobyt psa',
+    cena: '50 Kč',
+    jednotka: 'noc',
+    popis: 'Povoleno pouze pro malá plemena.',
+    ikona: 'M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z', // Ikona srdce/oblíbené
+  },
+  {
+    nazev: 'Tenisový kurt',
+    cena: '200 Kč',
+    jednotka: 'hodina',
+    popis: 'Pro ubytované hosty nabízíme slevu 50 % (100 Kč / hod).',
+    highlight: true,
+    ikona: 'M13 10V3L4 14h7v7l9-11h-7z', // Ikona blesku/akce
+  },
+];
+
+// DATA ŠUPLÍK - Týdenní pobyty
+const tydenniPobyty = [
+  {
+    nazev: 'Apartmány č. 3, 5',
+    popis: 'Zděný apartmán pro 4 osoby',
+    sezona1: '7 500 Kč',
+    sezona2: '7 500 Kč',
+    sezona3: '7 500 Kč',
+    nejzadanejsi: false,
+  },
+  {
+    nazev: 'Apartmány č. 4, 6–12',
+    popis: 'Zděný apartmán s oddělenou ložnicí',
+    sezona1: '7 900 Kč',
+    sezona2: '7 900 Kč',
+    sezona3: '7 500 Kč',
+    nejzadanejsi: true,
+  },
+  {
+    nazev: 'Chaty č. 1–4',
+    popis: 'Dřevěná chatka s vlastní terasou',
+    sezona1: '5 500 Kč',
+    sezona2: '5 500 Kč',
+    sezona3: '5 500 Kč',
+    nejzadanejsi: false,
+  },
+];
+
+// DATA ŠUPLÍK - Stornopodmínky
+const stornopodminky = [
+  { dny: '46 a více dnů', procenta: '0 %', popis: 'Před nástupem na pobyt', barva: 'text-[#4F7942]', bg: 'bg-[#4F7942]/10', border: 'border-[#4F7942]' },
+  { dny: '31 – 45 dnů', procenta: '30 %', popis: 'Ze zaplacené zálohy', barva: 'text-[#C5A059]', bg: 'bg-[#C5A059]/10', border: 'border-[#C5A059]' },
+  { dny: '15 – 30 dnů', procenta: '50 %', popis: 'Ze zaplacené zálohy', barva: 'text-orange-500', bg: 'bg-orange-500/10', border: 'border-orange-500' },
+  { dny: '0 – 14 dnů', procenta: '100 %', popis: 'Ze zaplacené zálohy', barva: 'text-[#1B4332]', bg: 'bg-[#1B4332]/10', border: 'border-[#1B4332]' },
+];
+---
+
+<Layout title="Ceník ubytování | Malá Hrdlička">
+  <main class="bg-[#F8F7F2] min-h-screen">
+    <section class="pt-40 pb-16 md:pt-56 md:pb-24 bg-[#EFEBE0] relative overflow-hidden">
+      <div class="absolute inset-0 opacity-[0.03]">
+        <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(#1B4332_1px,transparent_1px)] [background-size:20px_20px]"></div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+        <span class="inline-block mt-4 md:mt-8 px-3 py-1 rounded-sm bg-[#C5A059]/10 text-[#C5A059] text-[11px] font-bold tracking-[0.3em] uppercase mb-4"> Transparentní ceny </span>
+
+        <h1 class="text-4xl md:text-6xl font-black text-[#1B4332] uppercase tracking-tight mb-6">
+          Ceník <span class="text-[#C5A059]">2026</span>
+        </h1>
+
+        <p class="text-[#5C6656] font-light max-w-2xl mx-auto text-lg leading-relaxed">Plánujete letní dovolenou nebo víkendový únik z města? Prohlédněte si naši aktuální nabídku ubytování a služeb. Jsme tu pro vás po celou sezónu.</p>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-[#F8F7F2]">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div>
+            <h2 class="text-3xl font-bold text-[#1B4332] uppercase mb-2">Týdenní pobyty</h2>
+            <p class="text-[#5C6656] font-light">Ceny jsou uvedeny za celý objekt pro 4 osoby na 7 nocí.</p>
+          </div>
+          <div class="hidden md:block h-[2px] flex-grow bg-[#1B4332]/5 mx-8 mb-4"></div>
+          <a href="/kontakt" class="inline-flex items-center gap-2 px-6 py-3 bg-[#C5A059] text-white text-xs font-bold uppercase tracking-widest rounded-sm hover:bg-[#b08d4b] transition-all shadow-lg shadow-[#C5A059]/20 whitespace-nowrap"> Rezervovat pobyt </a>
+        </div>
+
+        <div class="hidden lg:block bg-white rounded-sm border border-[#1B4332]/10 shadow-sm overflow-hidden">
+          <table class="w-full text-left border-collapse">
+            <thead>
+              <tr class="bg-[#1B4332] text-white border-b border-[#1B4332]/20">
+                <th class="py-6 px-8 font-bold uppercase tracking-widest text-xs w-1/3">Typ ubytování</th>
+                <th class="py-6 px-6 text-center border-l border-white/10 w-2/9">
+                  <span class="block text-[10px] text-white/70 uppercase tracking-wider mb-1">1. 6. – 26. 6.</span>
+                  Vedlejší sezóna
+                </th>
+                <th class="py-6 px-6 text-center border-l border-white/10 bg-[#C5A059] w-2/9 relative">
+                  <span class="block text-[10px] text-white/90 uppercase tracking-wider mb-1">27. 6. – 31. 8.</span>
+                  Hlavní sezóna
+                </th>
+                <th class="py-6 px-6 text-center border-l border-white/10 w-2/9">
+                  <span class="block text-[10px] text-white/70 uppercase tracking-wider mb-1">1. 9. – 31. 10.</span>
+                  Vedlejší sezóna
+                </th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-[#EFEBE0]">
+              {
+                tydenniPobyty.map((typ) => (
+                  <tr class="hover:bg-[#EFEBE0]/40 transition-colors group">
+                    <td class="py-6 px-8 relative">
+                      {/* Tenký zlatý proužek vlevo pro nejžádanější položku */}
+                      {typ.nejzadanejsi && <div class="absolute top-1/2 -translate-y-1/2 left-0 w-1 h-3/4 bg-[#C5A059] rounded-r-sm" />}
+
+                      <div class="flex items-center gap-3 mb-1">
+                        <div class="font-bold text-[#1B4332] text-lg">{typ.nazev}</div>
+                        {typ.nejzadanejsi && <span class="bg-[#C5A059]/10 text-[#C5A059] text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-sm">Nejžádanější</span>}
+                      </div>
+                      <div class="text-[#5C6656] text-xs uppercase tracking-wider">{typ.popis}</div>
+                    </td>
+                    <td class="py-6 px-6 text-center font-medium text-[#5C6656] border-l border-[#EFEBE0]">{typ.sezona1}</td>
+                    {/* Buňka pro hlavní sezónu */}
+                    <td class="py-6 px-6 text-center font-black text-[#1B4332] border-l border-[#EFEBE0] bg-[#C5A059]/5 group-hover:bg-[#C5A059]/10 transition-colors">{typ.sezona2}</td>
+                    <td class="py-6 px-6 text-center font-medium text-[#5C6656] border-l border-[#EFEBE0]">{typ.sezona3}</td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+        </div>
+
+        <div class="lg:hidden space-y-6">
+          {
+            tydenniPobyty.map((typ) => (
+              <div class={`bg-white p-6 sm:p-8 rounded-sm border ${typ.nejzadanejsi ? 'border-[#C5A059] shadow-md' : 'border-[#1B4332]/10 shadow-sm'}`}>
+                <div class="mb-6 border-b border-[#EFEBE0] pb-4">
+                  {/* Štítek je nyní v běžném toku, nemůže se překrýt */}
+                  {typ.nejzadanejsi && <span class="inline-block bg-[#C5A059] text-white text-[9px] font-bold uppercase tracking-widest px-3 py-1 rounded-sm mb-3">Nejžádanější</span>}
+                  <h3 class="font-bold text-[#1B4332] text-xl mb-1">{typ.nazev}</h3>
+                  <p class="text-[#5C6656] text-xs uppercase tracking-wider">{typ.popis}</p>
+                </div>
+
+                <div class="space-y-3">
+                  <div class="flex justify-between items-center text-sm">
+                    <span class="text-[#5C6656]">
+                      Vedlejší <span class="text-[10px] ml-1">(do 26.6.)</span>
+                    </span>
+                    <span class="font-bold text-[#1B4332]">{typ.sezona1}</span>
+                  </div>
+
+                  {/* Zvýrazněný řádek pro hlavní sezónu na mobilu */}
+                  <div class="flex justify-between items-center text-sm bg-[#C5A059]/10 p-2 -mx-2 rounded-sm border border-[#C5A059]/20">
+                    <span class="text-[#1B4332] font-bold">
+                      Hlavní <span class="text-[10px] ml-1 opacity-70">(Léto)</span>
+                    </span>
+                    <span class="font-black text-[#C5A059] text-base">{typ.sezona2}</span>
+                  </div>
+
+                  <div class="flex justify-between items-center text-sm">
+                    <span class="text-[#5C6656]">
+                      Vedlejší <span class="text-[10px] ml-1">(od 1.9.)</span>
+                    </span>
+                    <span class="font-bold text-[#1B4332]">{typ.sezona3}</span>
+                  </div>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-white border-t border-[#1B4332]/5">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div>
+            <h2 class="text-3xl font-bold text-[#1B4332] uppercase mb-2">Víkendové pobyty</h2>
+            <p class="text-[#5C6656] font-light">
+              Ideální volba pro krátký odpočinek. Zkrácené pobyty nabízíme <strong class="text-[#C5A059] font-medium">pouze ve vedlejší sezóně</strong>.
+            </p>
+          </div>
+          <div class="hidden md:block h-[2px] flex-grow bg-[#1B4332]/5 mx-8 mb-4"></div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-6 max-w-3xl">
+          {
+            vikendovePobyty.map((pobyt) => (
+              <div class="bg-[#F8F7F2] p-6 md:p-8 rounded-sm border border-[#1B4332]/10 shadow-sm hover:shadow-md transition-shadow relative group overflow-hidden">
+                <div class="absolute -right-10 -top-10 w-24 h-24 bg-[#C5A059]/5 rounded-full group-hover:scale-150 transition-transform duration-700" />
+
+                <div class="relative z-10 flex flex-col h-full">
+                  <div class="flex flex-wrap justify-between items-start gap-4 mb-5">
+                    <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-[#4F7942] shadow-sm shrink-0">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={pobyt.ikona} />
+                      </svg>
+                    </div>
+                    <span class="inline-block px-2 py-1 bg-[#1B4332]/10 text-[#1B4332] text-[9px] font-bold uppercase tracking-widest rounded-sm text-right">{pobyt.podminka}</span>
+                  </div>
+
+                  <h3 class="text-xl font-bold text-[#1B4332] mb-1">{pobyt.nazev}</h3>
+                  <p class="text-[#5C6656] text-xs uppercase tracking-wider mb-6">{pobyt.doba}</p>
+
+                  <div class="mt-auto pt-4 border-t border-[#1B4332]/10 flex items-end gap-2">
+                    <span class="text-3xl font-black text-[#C5A059]">{pobyt.cena}</span>
+                    <span class="text-[#5C6656] text-xs font-medium pb-1">/ objekt</span>
+                  </div>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-[#F8F7F2]">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+          <div>
+            <h2 class="text-3xl font-bold text-[#1B4332] uppercase mb-2">Doplňkové služby</h2>
+            <p class="text-[#5C6656] font-light">Zpříjemněte si pobyt u nás. Vše zařídíme k vaší spokojenosti.</p>
+          </div>
+          <div class="hidden md:block h-[2px] flex-grow bg-[#1B4332]/5 mx-8 mb-4"></div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {
+            doplnkoveSluzby.map((sluzba) => (
+              <div class={`p-6 sm:p-8 rounded-sm bg-white border ${sluzba.highlight ? 'border-[#C5A059] shadow-md relative' : 'border-[#1B4332]/10 shadow-sm'} hover:-translate-y-1 transition-transform duration-300`}>
+                {/* Odznáček pro zvýrazněnou položku (Tenis) */}
+                {sluzba.highlight && <div class="absolute -top-3 right-4 bg-[#C5A059] text-white text-[9px] font-bold uppercase tracking-widest px-3 py-1 rounded-sm shadow-sm">Speciální akce</div>}
+
+                <div class="w-10 h-10 mb-6 bg-[#4F7942]/10 rounded-full flex items-center justify-center text-[#4F7942]">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={sluzba.ikona} />
+                  </svg>
+                </div>
+
+                <h3 class="text-xl font-bold text-[#1B4332] mb-2">{sluzba.nazev}</h3>
+                <p class="text-[#5C6656] text-sm font-light mb-6 min-h-[40px]">{sluzba.popis}</p>
+
+                <div class="pt-4 border-t border-[#1B4332]/5 flex items-baseline gap-2">
+                  <span class="text-2xl font-black text-[#1B4332]">{sluzba.cena}</span>
+                  <span class="text-[#5C6656] text-xs font-medium uppercase tracking-wider">/ {sluzba.jednotka}</span>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-24 bg-white border-t border-[#1B4332]/5">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid lg:grid-cols-12 gap-12 lg:gap-20">
+          <div class="lg:col-span-7 flex flex-col justify-center">
+            <h2 class="text-2xl font-bold text-[#1B4332] uppercase mb-6 flex items-center gap-3">
+              <svg class="w-6 h-6 text-[#C5A059]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+              Stornopodmínky
+            </h2>
+            <p class="text-[#5C6656] text-sm mb-10 leading-relaxed max-w-lg">Při zrušení rezervace se výše doplatku/stornopoplatku počítá podle počtu zbývajících dnů do plánovaného nástupu na pobyt.</p>
+
+            <div class="grid sm:grid-cols-2 gap-6 lg:gap-8">
+              {
+                stornopodminky.map((storno) => (
+                  <div class={`p-6 sm:p-8 rounded-sm border-l-4 ${storno.border} bg-[#F8F7F2] shadow-sm`}>
+                    <div class="text-[#5C6656] text-xs font-bold uppercase tracking-widest mb-3">{storno.dny}</div>
+                    <div class={`text-4xl font-black mb-2 ${storno.barva}`}>{storno.procenta}</div>
+                    <div class="text-[#5C6656] text-[11px] uppercase tracking-wider">{storno.popis}</div>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+
+          <div class="lg:col-span-5">
+            <h2 class="text-2xl font-bold text-[#1B4332] uppercase mb-6 flex items-center gap-3">
+              <svg class="w-6 h-6 text-[#C5A059]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              Poplatek obci
+            </h2>
+
+            <div class="bg-[#1B4332]/5 p-8 md:p-10 rounded-sm border border-[#1B4332]/10 relative h-full flex flex-col justify-center">
+              <div class="flex items-center gap-4 mb-8 pb-8 border-b border-[#1B4332]/10">
+                <span class="text-4xl font-black text-[#1B4332]">50 Kč</span>
+                <span class="text-[#5C6656] text-xs font-bold uppercase tracking-widest leading-tight">
+                  Za každý započatý<br />den pobytu
+                </span>
+              </div>
+
+              <p class="text-[#3A4535] text-sm mb-8 font-medium leading-relaxed">Poplatek se platí s výjimkou dne počátku pobytu (příjezdu). Plátcem poplatku je osoba starší 18 let, která není v obci přihlášená.</p>
+
+              <h3 class="text-[11px] font-bold text-[#1B4332] uppercase tracking-widest mb-4">Osvobozeny od poplatku jsou:</h3>
+              <ul class="space-y-3 text-[#5C6656] text-sm font-light">
+                <li class="flex items-start gap-3">
+                  <svg class="w-4 h-4 text-[#C5A059] mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                  Osoby mladší 18 let a starší 70 let.
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg class="w-4 h-4 text-[#C5A059] mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                  Držitelé průkazu ZTP/P a jejich průvodci.
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg class="w-4 h-4 text-[#C5A059] mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                  Osoby nevidomé nebo závislé na pomoci jiné osoby.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20 md:py-32 bg-[#1B4332] relative overflow-hidden">
+      <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-[#2D5A27] rounded-full blur-[120px] opacity-40 -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
+      <div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#C5A059] rounded-full blur-[100px] opacity-20 translate-y-1/3 -translate-x-1/4 pointer-events-none"></div>
+
+      <div class="max-w-4xl mx-auto px-6 relative z-10 text-center">
+        <span class="inline-flex items-center gap-3 text-[12px] font-bold tracking-[0.3em] uppercase text-[#C5A059] mb-6">
+          <span class="w-10 h-[1px] bg-[#C5A059]/50"></span>
+          Těšíme se na Vás
+          <span class="w-10 h-[1px] bg-[#C5A059]/50"></span>
+        </span>
+
+        <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+          Máte vybraný <br class="hidden md:block" />
+          <span class="text-[#C5A059]">termín?</span>
+        </h2>
+
+        <p class="text-[#EFEBE0]/80 text-lg md:text-xl font-light mb-10 max-w-2xl mx-auto">Neváhejte nás kontaktovat pro ověření dostupnosti nebo s jakýmkoliv dotazem. Rádi Vám se vším poradíme a pobyt zarezervujeme.</p>
+
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6">
+          <a href="/kontakt" class="w-full sm:w-auto px-8 py-4 bg-[#C5A059] text-white text-sm font-bold uppercase tracking-widest hover:bg-[#b08d4b] transition-colors duration-300 rounded-sm shadow-lg shadow-[#C5A059]/20"> Ověřit dostupnost </a>
+          <a href="/kontakt" class="w-full sm:w-auto px-8 py-4 bg-transparent text-white text-sm font-bold uppercase tracking-widest border border-white/30 hover:border-white hover:bg-white/5 transition-all duration-300 rounded-sm"> Mám dotaz </a>
+        </div>
+      </div>
+
+      <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] z-20 translate-y-[1px]">
+        <svg class="block w-full h-[40px] md:h-[80px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+          <path d="M0,0 C300,120 900,120 1200,0 L1200,120 L0,120 Z" fill="#4F7942"></path>
+        </svg>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  /* Plynulý přechod pro kotvy */
+  html {
+    scroll-behavior: smooth;
+  }
+</style>
