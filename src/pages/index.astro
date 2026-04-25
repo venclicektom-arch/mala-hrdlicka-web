@@ -474,30 +474,32 @@ import fotoApartmanDetail from '../assets/images/galerie/ubytovani-apartman-deta
       </div>
 
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-        <a href={fotoBazen.src} data-gallery="uvodni-galerie" data-title="Zábava v bazénu" class="glightbox block relative group col-span-2 row-span-2 aspect-[1/1] overflow-hidden rounded-sm bg-[#EFEBE0] shadow-lg shadow-[#1B4332]/5 cursor-pointer">
+        {/* Hlavní velká fotka */}
+        <div class="block relative group col-span-2 row-span-2 aspect-[1/1] overflow-hidden rounded-sm bg-[#EFEBE0] shadow-lg shadow-[#1B4332]/5">
           <Image src={fotoBazen} alt="Děti a dospělí se baví v bazénu v areálu Malá Hrdlička" width={800} quality={85} format="avif" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 [backface-visibility:hidden] [transform:translateZ(0)]" />
           <div class="absolute inset-0 bg-[#0A120E]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-        </a>
+        </div>
 
-        <a href={fotoApartmanDetail.src} data-gallery="uvodni-galerie" data-title="Útulné apartmány" class="glightbox block relative group aspect-square overflow-hidden rounded-sm bg-[#EFEBE0] cursor-pointer">
-          <Image src={fotoApartmanDetail} alt="Detail útulného interiéru apartmánu" width={400} quality={80} format="avif" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 [backface-visibility:hidden] [transform:translateZ(0)]" />
-        </a>
+        {/* Menší fotky */}
+        <div class="block relative group aspect-square overflow-hidden rounded-sm bg-[#EFEBE0]">
+          <Image src={fotoApartmanDetail} alt="Detail útulného interiéru apartmánu" width={400} quality={80} format="avif" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+        </div>
 
-        <a href={fotoPosezeni.src} data-gallery="uvodni-galerie" data-title="Ranní káva na terase" class="glightbox block relative group aspect-square overflow-hidden rounded-sm bg-[#EFEBE0] cursor-pointer">
-          <Image src={fotoPosezeni} alt="Pohodové venkovní posezení na terase" width={400} quality={80} format="avif" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 [backface-visibility:hidden] [transform:translateZ(0)]" />
-        </a>
+        <div class="block relative group aspect-square overflow-hidden rounded-sm bg-[#EFEBE0]">
+          <Image src={fotoPosezeni} alt="Pohodové venkovní posezení na terase" width={400} quality={80} format="avif" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+        </div>
 
-        <a href={fotoVoda.src} data-gallery="uvodni-galerie" data-title="Vodní radovánky na Slapech" class="glightbox block relative group aspect-square overflow-hidden rounded-sm bg-[#EFEBE0] cursor-pointer">
-          <Image src={fotoVoda} alt="Vodní radovánky a paddleboardy na Slapech" width={400} quality={80} format="avif" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 [backface-visibility:hidden] [transform:translateZ(0)]" />
-        </a>
+        <div class="block relative group aspect-square overflow-hidden rounded-sm bg-[#EFEBE0]">
+          <Image src={fotoVoda} alt="Vodní radovánky a paddleboardy na Slapech" width={400} quality={80} format="avif" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+        </div>
 
-        <a href={fotoHriste.src} data-gallery="uvodni-galerie" data-title="Dětské hřiště v areálu" class="glightbox block relative group aspect-square overflow-hidden rounded-sm bg-[#EFEBE0] col-span-2 md:col-span-1 cursor-pointer">
-          <Image src={fotoHriste} alt="Dětské hřiště s prolézačkami v areálu" width={400} quality={80} format="avif" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 [backface-visibility:hidden] [transform:translateZ(0)]" />
-        </a>
+        <div class="block relative group aspect-square overflow-hidden rounded-sm bg-[#EFEBE0] col-span-2 md:col-span-1">
+          <Image src={fotoHriste} alt="Dětiské hřiště s prolézačkami v areálu" width={400} quality={80} format="avif" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+        </div>
 
-        <a href={fotoOhniste.src} data-gallery="uvodni-galerie" data-title="Večerní pohoda u ohně" class="glightbox block relative group aspect-square overflow-hidden rounded-sm bg-[#EFEBE0] col-span-2 md:col-span-1 cursor-pointer">
-          <Image src={fotoOhniste} alt="Večerní opékání špekáčků u ohniště" width={400} quality={80} format="avif" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 [backface-visibility:hidden] [transform:translateZ(0)]" />
-        </a>
+        <div class="block relative group aspect-square overflow-hidden rounded-sm bg-[#EFEBE0] col-span-2 md:col-span-1">
+          <Image src={fotoOhniste} alt="Večerní opékání špekáčků u ohniště" width={400} quality={80} format="avif" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+        </div>
       </div>
 
       <div class="mt-16 text-center">

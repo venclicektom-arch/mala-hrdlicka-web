@@ -1,0 +1,192 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import 'photoswipe/style.css';
+
+// 1. Načteme všechny sekce z kolekce
+const rawSections = await getCollection('gallery');
+
+// 2. FILTRACE: Pustíme dál jen ty, které mají v poli images alespoň jednu fotku
+const nonEmptySections = rawSections.filter((section) => section.data.images && section.data.images.length > 0);
+
+// 3. SEŘAZENÍ: Seřadíme ty, které zbyly, podle tvého pole order
+const gallerySections = nonEmptySections.sort((a, b) => a.data.order - b.data.order);
+---
+
+<Layout title="Fotogalerie | Malá Hrdlička" description="Prohlédněte si fotografie našeho ubytování, chatek, apartmánů a krásného okolí v kempu Malá Hrdlička.">
+  <section class="pt-16 pb-16 md:pt-24 md:pb-24 bg-[#EFEBE0] relative overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.03]">
+      <div class="absolute top-0 left-0 w-full h-full bg-[radial-gradient(#1B4332_1px,transparent_1px)] [background-size:20px_20px]"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+      <span class="inline-block mt-4 md:mt-8 px-3 py-1 rounded-sm bg-[#C5A059]/10 text-[#C5A059] text-[11px] font-bold tracking-[0.3em] uppercase mb-4"> Nahlédněte k nám </span>
+      <h1 class="text-4xl md:text-6xl font-black text-[#1B4332] uppercase tracking-tight mb-6">
+        Naše <span class="text-[#C5A059]">Galerie</span>
+      </h1>
+      <p class="text-[#5C6656] font-light max-w-2xl mx-auto text-lg leading-relaxed">Podívejte se, jak to u nás vypadá. Prohlédněte si útulné chatky, moderní apartmány a krásnou přírodu, která náš kemp obklopuje. Těšíme se na vaši návštěvu!</p>
+    </div>
+  </section>
+
+  <main class="max-w-7xl mx-auto px-6 py-16">
+    {
+      gallerySections.length > 0 && (
+        <div class="flex flex-wrap justify-center gap-3 mb-20 sticky top-24 z-20 bg-white/90 backdrop-blur-md py-4 px-6 rounded-2xl shadow-sm border border-[#EFEBE0]">
+          {gallerySections.map((section) => (
+            <a href={`#${section.id}`} class="px-5 py-2 rounded-sm bg-transparent border border-[#C5A059] text-[#1B4332] text-sm font-medium uppercase tracking-wider hover:bg-[#C5A059] hover:text-white transition-all duration-300">
+              {section.data.title}
+            </a>
+          ))}
+        </div>
+      )
+    }
+
+    <div class="space-y-28">
+      {
+        gallerySections.map((section) => (
+          <section id={section.id} class="scroll-mt-48">
+            <div class="flex items-center mb-10">
+              <h2 class="text-3xl font-bold text-[#1B4332] mr-6 uppercase tracking-tight">{section.data.title}</h2>
+              <div class="h-px bg-[#C5A059]/30 flex-grow" />
+            </div>
+
+            <div class="pswp-gallery grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6" id={`grid-${section.id}`}>
+              {section.data.images.map((item, index) => {
+                let visibilityClass = '';
+                if (index >= 6) visibilityClass = 'hide-everywhere';
+                else if (index >= 4) visibilityClass = 'hide-on-mobile';
+
+                return (
+                  <div class={`photo-anim-wrapper ${visibilityClass}`}>
+                    <a href={item.image.src} data-pswp-width={item.image.width} data-pswp-height={item.image.height} target="_blank" class="block group relative overflow-hidden rounded-sm shadow-sm hover:shadow-xl transition-all duration-300 cursor-zoom-in aspect-[4/3] bg-[#EFEBE0] h-full">
+                      <Image src={item.image} alt={item.alt} width={800} class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                      <div class="absolute inset-0 bg-gradient-to-t from-[#1B4332]/90 via-[#1B4332]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <p class="text-[#EFEBE0] font-light tracking-wide transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">{item.alt}</p>
+                      </div>
+                    </a>
+                  </div>
+                );
+              })}
+            </div>
+
+            {section.data.images.length > 4 && (
+              <div class={`mt-12 text-center ${section.data.images.length <= 6 ? 'md:hidden' : ''}`}>
+                <button class="show-more-btn px-8 py-3 rounded-sm bg-transparent border border-[#1B4332] text-[#1B4332] text-sm font-bold uppercase tracking-widest hover:bg-[#1B4332] hover:text-white transition-all duration-300" data-target={`grid-${section.id}`}>
+                  Zobrazit více
+                </button>
+              </div>
+            )}
+          </section>
+        ))
+      }
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .photo-anim-wrapper {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+    transition:
+      opacity 0.6s cubic-bezier(0.2, 0.8, 0.2, 1),
+      transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .photo-anim-wrapper.is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  @media (max-width: 767px) {
+    .hide-on-mobile:not(.force-show) {
+      display: none;
+    }
+  }
+  .hide-everywhere:not(.force-show) {
+    display: none;
+  }
+</style>
+
+<script>
+  // 4. PŘIDÁNO: Import samotné logiky PhotoSwipe
+  import PhotoSwipeLightbox from 'photoswipe/lightbox';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    // Inicializace PhotoSwipe (najde všechny fotky v našich sekcích)
+    const lightbox = new PhotoSwipeLightbox({
+      gallery: '.pswp-gallery',
+      children: 'a',
+      pswpModule: () => import('photoswipe'),
+    });
+    lightbox.init();
+
+    // 1. CHYTRÉ NAČÍTÁNÍ PŘI SCROLLOVÁNÍ
+    const observer = new IntersectionObserver(
+      (entries) => {
+        let delay = 0;
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              entry.target.classList.add('is-visible');
+            }, delay);
+            delay += 100;
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 },
+    );
+
+    const visiblePhotos = Array.from(document.querySelectorAll('.photo-anim-wrapper')).filter((el) => {
+      return window.getComputedStyle(el).display !== 'none';
+    });
+    visiblePhotos.forEach((card) => observer.observe(card));
+
+    // 2. LOGIKA TLAČÍTKA "ZOBRAZIT VÍCE"
+    const buttons = document.querySelectorAll('.show-more-btn');
+
+    buttons.forEach((button) => {
+      button.addEventListener('click', (e) => {
+        const btn = e.currentTarget as HTMLButtonElement;
+        const targetId = btn.getAttribute('data-target');
+        const grid = document.getElementById(targetId);
+
+        if (grid) {
+          const hiddenPhotos = grid.querySelectorAll('.hide-everywhere, .hide-on-mobile');
+          const isExpanded = btn.getAttribute('data-expanded') === 'true';
+
+          if (!isExpanded) {
+            let delay = 0;
+            hiddenPhotos.forEach((photo) => {
+              if (window.getComputedStyle(photo).display === 'none') {
+                photo.classList.add('force-show');
+                photo.classList.remove('is-visible');
+                void (photo as HTMLElement).offsetWidth;
+
+                setTimeout(() => {
+                  photo.classList.add('is-visible');
+                }, delay);
+                delay += 100;
+              }
+            });
+            btn.textContent = 'Zobrazit méně';
+            btn.setAttribute('data-expanded', 'true');
+          } else {
+            const currentlyExpandedPhotos = grid.querySelectorAll('.force-show');
+
+            currentlyExpandedPhotos.forEach((photo) => {
+              photo.classList.remove('is-visible');
+              setTimeout(() => {
+                photo.classList.remove('force-show');
+              }, 500);
+            });
+
+            btn.textContent = 'Zobrazit více';
+            btn.setAttribute('data-expanded', 'false');
+            const section = grid.closest('section');
+            if (section) section.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      });
+    });
+  });
+</script>

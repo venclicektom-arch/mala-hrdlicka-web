@@ -21,8 +21,6 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://slapy-hrdlicka.cz');
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href={canonicalURL} />
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
-
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
     <meta property="og:type" content="website" />
@@ -219,19 +217,5 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://slapy-hrdlicka.cz');
         <p>Tvorba webu pro Vás</p>
       </div>
     </footer>
-
-    <script is:inline src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
-
-    <script is:inline>
-      document.addEventListener('DOMContentLoaded', () => {
-        const lightbox = GLightbox({
-          selector: '.glightbox',
-          touchNavigation: true,
-          loop: true,
-          /* Tímhle zakážeme GLightboxu sahat na scrollbar a body */
-          bodyOverflowHidden: true,
-        });
-      });
-    </script>
   </body>
 </html>

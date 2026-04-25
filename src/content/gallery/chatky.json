@@ -1,0 +1,66 @@
+{
+  "title": "Chatky",
+  "order": 1,
+  "images": [
+    {
+      "image": "../../assets/images/gallery/chatky/images/0/image.jpeg",
+      "alt": "Ložnice"
+    },
+    {
+      "image": "../../assets/images/gallery/chatky/images/1/image.jpeg",
+      "alt": "Dvoulůžko"
+    },
+    {
+      "image": "../../assets/images/gallery/chatky/images/2/image.jpeg",
+      "alt": "Kuchyňka"
+    },
+    {
+      "image": "../../assets/images/gallery/chatky/images/3/image.jpeg",
+      "alt": "Palanda"
+    },
+    {
+      "image": "../../assets/images/gallery/chatky/images/4/image.jpeg",
+      "alt": "Postele"
+    },
+    {
+      "image": "../../assets/images/gallery/chatky/images/5/image.jpeg",
+      "alt": "Lůžka pokoj"
+    },
+    {
+      "image": "../../assets/images/gallery/chatky/images/6/image.jpeg",
+      "alt": "Kamna"
+    },
+    {
+      "image": "../../assets/images/gallery/chatky/images/7/image.jpeg",
+      "alt": "Kuchyňský kout"
+    },
+    {
+      "image": "../../assets/images/gallery/chatky/images/8/image.jpeg",
+      "alt": "Pokoj"
+    },
+    {
+      "image": "../../assets/images/gallery/chatky/images/9/image.jpeg",
+      "alt": "Kuchyň a kamna"
+    },
+    {
+      "image": "../../assets/images/gallery/chatky/images/10/image.jpeg",
+      "alt": "Chatka exteriér"
+    },
+    {
+      "image": "../../assets/images/gallery/chatky/images/11/image.jpeg",
+      "alt": "Dvoulůžko"
+    },
+    {
+      "image": "../../assets/images/gallery/chatky/images/12/image.jpeg",
+      "alt": "Kuchyňská linka"
+    },
+    {
+      "image": "../../assets/images/gallery/chatky/images/13/image.jpeg",
+      "alt": "Veranda posezení"
+    },
+    {
+      "image": "../../assets/images/gallery/chatky/images/14/image.jpeg",
+      "alt": "Areál chatek"
+    }
+  ]
+}

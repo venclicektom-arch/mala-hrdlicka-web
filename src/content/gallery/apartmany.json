@@ -1,0 +1,118 @@
+{
+  "title": "Apartmány",
+  "order": 2,
+  "images": [
+    {
+      "image": "../../assets/images/gallery/apartmany/images/0/image.jpeg",
+      "alt": "Obývací pokoj"
+    },
+    {
+      "image": "../../assets/images/gallery/apartmany/images/1/image.jpeg",
+      "alt": "Obývácí pokoj - interiér"
+    },
+    {
+      "image": "../../assets/images/gallery/apartmany/images/2/image.jpeg",
+      "alt": "Obývací pokoj TV"
+    },
+    {
+      "image": "../../assets/images/gallery/apartmany/images/3/image.jpeg",
+      "alt": "Posezení"
+    },
+    {
+      "image": "../../assets/images/gallery/apartmany/images/4/image.jpeg",
+      "alt": "Jídelní stůl"
+    },
+    {
+      "image": "../../assets/images/gallery/apartmany/images/5/image.jpeg",
+      "alt": "Televize"
+    },
+    {
+      "image": "../../assets/images/gallery/apartmany/images/6/image.jpeg",
+      "alt": "Palanda"
+    },
+    {
+      "image": "../../assets/images/gallery/apartmany/images/7/image.jpeg",
+      "alt": "Kuchyň"
+    },
+    {
+      "image": "../../assets/images/gallery/apartmany/images/8/image.jpeg",
+      "alt": "Terasa"
+    },
+    {
+      "image": "../../assets/images/gallery/apartmany/images/9/image.jpeg",
+      "alt": "Kuchyň skříňky"
+    },
+    {
+      "image": "../../assets/images/gallery/apartmany/images/10/image.jpeg",
+      "alt": "Kuchyň"
+    },
+    {
+      "image": "../../assets/images/gallery/apartmany/images/11/image.jpeg",
+      "alt": "Gauče"
+    },
+    {
+      "image": "../../assets/images/gallery/apartmany/images/12/image.jpeg",
+      "alt": "Posezení"
+    },
+    {
+      "image": "../../assets/images/gallery/apartmany/images/13/image.jpeg",
+      "alt": "Kuchyň sporák"
+    },
+    {
+      "image": "../../assets/images/gallery/apartmany/images/14/image.jpeg",
+      "alt": "Obývací pokoj"
+    },
+    {
+      "image": "../../assets/images/gallery/apartmany/images/15/image.jpeg",
+      "alt": "Lednice"
+    },
+    {
+      "image": "../../assets/images/gallery/apartmany/images/16/image.jpeg",
+      "alt": "Jídelna"
+    },
+    {
+      "image": "../../assets/images/gallery/apartmany/images/17/image.jpeg",
+      "alt": "Koupelna"
+    },
+    {
+      "image": "../../assets/images/gallery/apartmany/images/18/image.jpg",
+      "alt": "Sprchový kout"
+    },
+    {
+      "image": "../../assets/images/gallery/apartmany/images/19/image.jpg",
+      "alt": "Kuchyňská linka"
+    },
+    {
+      "image": "../../assets/images/gallery/apartmany/images/20/image.jpg",
+      "alt": "Palanda"
+    },
+    {
+      "image": "../../assets/images/gallery/apartmany/images/21/image.jpg",
+      "alt": "Kuchyňka"
+    },
+    {
+      "image": "../../assets/images/gallery/apartmany/images/22/image.jpg",
+      "alt": "Pokoj"
+    },
+    {
+      "image": "../../assets/images/gallery/apartmany/images/23/image.jpg",
+      "alt": "Koupelna"
+    },
+    {
+      "image": "../../assets/images/gallery/apartmany/images/24/image.jpg",
+      "alt": "Sedačka"
+    },
+    {
+      "image": "../../assets/images/gallery/apartmany/images/25/image.jpg",
+      "alt": "Posezení"
+    },
+    {
+      "image": "../../assets/images/gallery/apartmany/images/26/image.jpg",
+      "alt": "Pokoj"
+    },
+    {
+      "image": "../../assets/images/gallery/apartmany/images/27/image.jpg",
+      "alt": "Exteriér"
+    }
+  ]
+}
