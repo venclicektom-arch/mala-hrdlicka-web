@@ -1,84 +1,34 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getEntry } from 'astro:content';
 
-// DATA ŠUPLÍK - Týdenní pobyty (pro CMS)
-const vikendovePobyty = [
-  {
-    nazev: 'Apartmány',
-    cena: '3 000 Kč',
-    doba: 'Pátek – Neděle',
-    podminka: 'Pouze vedlejší sezóna',
-    ikona: 'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6', // Ikonka domečku
-  },
-  {
-    nazev: 'Chaty',
-    cena: '2 100 Kč',
-    doba: 'Pátek – Neděle',
-    podminka: 'Pouze vedlejší sezóna',
-    ikona: 'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6', // Ikonka domečku (případně můžeme dát stromek)
-  },
-];
+// Vytáhneme ceník z CMS (použijeme id 'index', protože je to Singleton)
+const cenikEntry = await getEntry('cenik', 'index');
+const data = cenikEntry?.data;
+console.log('CENIK DATA:', data);
 
-// DATA ŠUPLÍK - Doplňkové služby
-const doplnkoveSluzby = [
-  {
-    nazev: 'Přistýlka',
-    cena: '100 Kč',
-    jednotka: 'osoba / noc',
-    popis: 'Cena za přistýlku za jednu osobu a noc.',
-    ikona: 'M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z', // Ikona osob
-  },
-  {
-    nazev: 'Pobyt psa',
-    cena: '50 Kč',
-    jednotka: 'noc',
-    popis: 'Povoleno pouze pro malá plemena.',
-    ikona: 'M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z', // Ikona srdce/oblíbené
-  },
-  {
-    nazev: 'Tenisový kurt',
-    cena: '200 Kč',
-    jednotka: 'hodina',
-    popis: 'Pro ubytované hosty nabízíme slevu 50 % (100 Kč / hod).',
-    highlight: true,
-    ikona: 'M13 10V3L4 14h7v7l9-11h-7z', // Ikona blesku/akce
-  },
-];
+// Pomocná funkce pro ikony (převede text z CMS na tvé SVG cesty)
+const getIconPath = (iconName: string) => {
+  switch (iconName) {
+    case 'home':
+      return 'M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6';
+    case 'users':
+      return 'M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z';
+    case 'heart':
+      return 'M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z';
+    case 'bolt':
+      return 'M13 10V3L4 14h7v7l9-11h-7z';
+    default:
+      return 'M13 10V3L4 14h7v7l9-11h-7z';
+  }
+};
 
-// DATA ŠUPLÍK - Týdenní pobyty
-const tydenniPobyty = [
-  {
-    nazev: 'Apartmány č. 3, 5',
-    popis: 'Zděný apartmán pro 4 osoby',
-    sezona1: '7 500 Kč',
-    sezona2: '7 500 Kč',
-    sezona3: '7 500 Kč',
-    nejzadanejsi: false,
-  },
-  {
-    nazev: 'Apartmány č. 4, 6–12',
-    popis: 'Zděný apartmán s oddělenou ložnicí',
-    sezona1: '7 900 Kč',
-    sezona2: '7 900 Kč',
-    sezona3: '7 500 Kč',
-    nejzadanejsi: true,
-  },
-  {
-    nazev: 'Chaty č. 1–4',
-    popis: 'Dřevěná chatka s vlastní terasou',
-    sezona1: '5 500 Kč',
-    sezona2: '5 500 Kč',
-    sezona3: '5 500 Kč',
-    nejzadanejsi: false,
-  },
-];
-
-// DATA ŠUPLÍK - Stornopodmínky
-const stornopodminky = [
-  { dny: '46 a více dnů', procenta: '0 %', popis: 'Před nástupem na pobyt', barva: 'text-[#4F7942]', bg: 'bg-[#4F7942]/10', border: 'border-[#4F7942]' },
-  { dny: '31 – 45 dnů', procenta: '30 %', popis: 'Ze zaplacené zálohy', barva: 'text-[#C5A059]', bg: 'bg-[#C5A059]/10', border: 'border-[#C5A059]' },
-  { dny: '15 – 30 dnů', procenta: '50 %', popis: 'Ze zaplacené zálohy', barva: 'text-orange-500', bg: 'bg-orange-500/10', border: 'border-orange-500' },
-  { dny: '0 – 14 dnů', procenta: '100 %', popis: 'Ze zaplacené zálohy', barva: 'text-[#1B4332]', bg: 'bg-[#1B4332]/10', border: 'border-[#1B4332]' },
+// Pomocná pole pro barvy storna (aby to nebylo v CMS)
+const stornoColors = [
+  { barva: 'text-[#4F7942]', bg: 'bg-[#4F7942]/10', border: 'border-[#4F7942]' },
+  { barva: 'text-[#C5A059]', bg: 'bg-[#C5A059]/10', border: 'border-[#C5A059]' },
+  { barva: 'text-orange-500', bg: 'bg-orange-500/10', border: 'border-orange-500' },
+  { barva: 'text-[#1B4332]', bg: 'bg-[#1B4332]/10', border: 'border-[#1B4332]' },
 ];
 ---
 
@@ -132,7 +82,7 @@ const stornopodminky = [
             </thead>
             <tbody class="divide-y divide-[#EFEBE0]">
               {
-                tydenniPobyty.map((typ) => (
+                data?.tydenniPobyty.map((typ) => (
                   <tr class="hover:bg-[#EFEBE0]/40 transition-colors group">
                     <td class="py-6 px-8 relative">
                       {/* Tenký zlatý proužek vlevo pro nejžádanější položku */}
@@ -157,7 +107,7 @@ const stornopodminky = [
 
         <div class="lg:hidden space-y-6">
           {
-            tydenniPobyty.map((typ) => (
+            data?.tydenniPobyty.map((typ) => (
               <div class={`bg-white p-6 sm:p-8 rounded-sm border ${typ.nejzadanejsi ? 'border-[#C5A059] shadow-md' : 'border-[#1B4332]/10 shadow-sm'}`}>
                 <div class="mb-6 border-b border-[#EFEBE0] pb-4">
                   {/* Štítek je nyní v běžném toku, nemůže se překrýt */}
@@ -210,7 +160,7 @@ const stornopodminky = [
 
         <div class="grid sm:grid-cols-2 gap-6 max-w-3xl">
           {
-            vikendovePobyty.map((pobyt) => (
+            data?.vikendovePobyty.map((pobyt) => (
               <div class="bg-[#F8F7F2] p-6 md:p-8 rounded-sm border border-[#1B4332]/10 shadow-sm hover:shadow-md transition-shadow relative group overflow-hidden">
                 <div class="absolute -right-10 -top-10 w-24 h-24 bg-[#C5A059]/5 rounded-full group-hover:scale-150 transition-transform duration-700" />
 
@@ -218,7 +168,7 @@ const stornopodminky = [
                   <div class="flex flex-wrap justify-between items-start gap-4 mb-5">
                     <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-[#4F7942] shadow-sm shrink-0">
                       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={pobyt.ikona} />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={getIconPath(pobyt.ikona)} />
                       </svg>
                     </div>
                     <span class="inline-block px-2 py-1 bg-[#1B4332]/10 text-[#1B4332] text-[9px] font-bold uppercase tracking-widest rounded-sm text-right">{pobyt.podminka}</span>
@@ -251,14 +201,14 @@ const stornopodminky = [
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {
-            doplnkoveSluzby.map((sluzba) => (
+            data?.doplnkoveSluzby.map((sluzba) => (
               <div class={`p-6 sm:p-8 rounded-sm bg-white border ${sluzba.highlight ? 'border-[#C5A059] shadow-md relative' : 'border-[#1B4332]/10 shadow-sm'} hover:-translate-y-1 transition-transform duration-300`}>
                 {/* Odznáček pro zvýrazněnou položku (Tenis) */}
                 {sluzba.highlight && <div class="absolute -top-3 right-4 bg-[#C5A059] text-white text-[9px] font-bold uppercase tracking-widest px-3 py-1 rounded-sm shadow-sm">Speciální akce</div>}
 
                 <div class="w-10 h-10 mb-6 bg-[#4F7942]/10 rounded-full flex items-center justify-center text-[#4F7942]">
                   <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={sluzba.ikona} />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={getIconPath(sluzba.ikona)} />
                   </svg>
                 </div>
 
@@ -288,13 +238,18 @@ const stornopodminky = [
 
             <div class="grid sm:grid-cols-2 gap-6 lg:gap-8">
               {
-                stornopodminky.map((storno) => (
-                  <div class={`p-6 sm:p-8 rounded-sm border-l-4 ${storno.border} bg-[#F8F7F2] shadow-sm`}>
-                    <div class="text-[#5C6656] text-xs font-bold uppercase tracking-widest mb-3">{storno.dny}</div>
-                    <div class={`text-4xl font-black mb-2 ${storno.barva}`}>{storno.procenta}</div>
-                    <div class="text-[#5C6656] text-[11px] uppercase tracking-wider">{storno.popis}</div>
-                  </div>
-                ))
+                data?.stornopodminky?.map((storno, index) => {
+                  // Vezmeme barvy z pomocného pole (pokud je položek víc než 4, zrecyklujeme tu poslední)
+                  const colors = stornoColors[index] || stornoColors[stornoColors.length - 1];
+
+                  return (
+                    <div class={`p-6 sm:p-8 rounded-sm border-l-4 ${colors.border} ${colors.bg} shadow-sm`}>
+                      <div class="text-[#5C6656] text-xs font-bold uppercase tracking-widest mb-3">{storno.dny}</div>
+                      <div class={`text-4xl font-black mb-2 ${colors.barva}`}>{storno.procenta}</div>
+                      <div class="text-[#5C6656] text-[11px] uppercase tracking-wider">{storno.popis}</div>
+                    </div>
+                  );
+                })
               }
             </div>
           </div>

@@ -1,0 +1,87 @@
+{
+  "tydenniPobyty": [
+    {
+      "nazev": "Apartmány č. 3, 5",
+      "popis": "Zděný apartmán pro 4 osoby",
+      "sezona1": "7 500 Kč",
+      "sezona2": "7 500 Kč",
+      "sezona3": "7 500 Kč",
+      "nejzadanejsi": false
+    },
+    {
+      "nazev": "Apartmány č. 4, 6–12",
+      "popis": "Zděný apartmán s oddělenou ložnicí",
+      "sezona1": "7 900 Kč",
+      "sezona2": "7 900 Kč",
+      "sezona3": "7 500 Kč",
+      "nejzadanejsi": true
+    },
+    {
+      "nazev": "Chaty č. 1–4",
+      "popis": "Dřevěná chatka s vlastní terasou",
+      "sezona1": "5 500 Kč",
+      "sezona2": "5 500 Kč",
+      "sezona3": "5 500 Kč",
+      "nejzadanejsi": false
+    }
+  ],
+  "vikendovePobyty": [
+    {
+      "nazev": "Apartmány",
+      "cena": "3 000 Kč",
+      "doba": "Pátek – Neděle",
+      "podminka": "Pouze vedlejší sezóna",
+      "ikona": "home"
+    },
+    {
+      "nazev": "Chaty",
+      "cena": "2 100 Kč",
+      "doba": "Pátek – Neděle",
+      "podminka": "Pouze vedlejší sezóna",
+      "ikona": "home"
+    }
+  ],
+  "doplnkoveSluzby": [
+    {
+      "nazev": "Přistýlka",
+      "cena": "100 Kč",
+      "jednotka": "osoba / noc",
+      "popis": "Cena za přistýlku za jednu osobu a noc.",
+      "highlight": false,
+      "ikona": "users"
+    },
+    {
+      "nazev": "Pobyt psa",
+      "cena": "50 Kč",
+      "jednotka": "noc",
+      "popis": "Povoleno pouze pro malá plemena.",
+      "highlight": false,
+      "ikona": "heart"
+    },
+    {
+      "nazev": "Tenisový kurt",
+      "cena": "200 Kč",
+      "jednotka": "hodina",
+      "popis": "Pro ubytované hosty nabízíme slevu 50 % (100 Kč / hod).",
+      "highlight": true,
+      "ikona": "bolt"
+    }
+  ],
+  "stornopodminky": [
+    {
+      "dny": "46 a více dnů",
+      "procenta": "0 %",
+      "popis": "Před nástupem na pobyt"
+    },
+    {
+      "dny": "31 – 45 dnů",
+      "procenta": "30 %",
+      "popis": "Ze zaplacené zálohy"
+    },
+    {
+      "dny": "0 – 14 dnů",
+      "procenta": "100 %",
+      "popis": "Ze zaplacené zálohy"
+    }
+  ]
+}
