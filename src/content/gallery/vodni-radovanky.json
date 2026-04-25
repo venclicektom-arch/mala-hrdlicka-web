@@ -1,0 +1,34 @@
+{
+  "title": "Vodní radovánky",
+  "order": 2,
+  "images": [
+    {
+      "image": "../../assets/images/gallery/vodni-radovanky/images/0/image.jpeg",
+      "alt": "Paddleboardy"
+    },
+    {
+      "image": "../../assets/images/gallery/vodni-radovanky/images/1/image.jpeg",
+      "alt": "Paddleboard"
+    },
+    {
+      "image": "../../assets/images/gallery/vodni-radovanky/images/2/image.jpeg",
+      "alt": "Parník"
+    },
+    {
+      "image": "../../assets/images/gallery/vodni-radovanky/images/3/image.jpeg",
+      "alt": "Slapská přehrada"
+    },
+    {
+      "image": "../../assets/images/gallery/vodni-radovanky/images/4/image.jpeg",
+      "alt": "Slapská přehrada"
+    },
+    {
+      "image": "../../assets/images/gallery/vodni-radovanky/images/5/image.jpeg",
+      "alt": "Příroda"
+    },
+    {
+      "image": "../../assets/images/gallery/vodni-radovanky/images/6/image.jpeg",
+      "alt": "Člun"
+    }
+  ]
+}

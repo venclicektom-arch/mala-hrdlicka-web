@@ -1,0 +1,42 @@
+{
+  "title": "Areál",
+  "order": 1,
+  "images": [
+    {
+      "image": "../../assets/images/gallery/areal/images/0/image.jpeg",
+      "alt": "Opékaní špekáčků"
+    },
+    {
+      "image": "../../assets/images/gallery/areal/images/1/image.jpeg",
+      "alt": "Venkovní posezení"
+    },
+    {
+      "image": "../../assets/images/gallery/areal/images/2/image.jpeg",
+      "alt": "Venkovní posezení"
+    },
+    {
+      "image": "../../assets/images/gallery/areal/images/3/image.jpeg",
+      "alt": "Kozy"
+    },
+    {
+      "image": "../../assets/images/gallery/areal/images/4/image.jpeg",
+      "alt": "Dětské hřiště"
+    },
+    {
+      "image": "../../assets/images/gallery/areal/images/5/image.jpeg",
+      "alt": "Trampolíná"
+    },
+    {
+      "image": "../../assets/images/gallery/areal/images/6/image.jpeg",
+      "alt": "Pohled na areál"
+    },
+    {
+      "image": "../../assets/images/gallery/areal/images/7/image.jpeg",
+      "alt": "Bazén"
+    },
+    {
+      "image": "../../assets/images/gallery/areal/images/8/image.jpeg",
+      "alt": "Pohled na areál"
+    }
+  ]
+}
