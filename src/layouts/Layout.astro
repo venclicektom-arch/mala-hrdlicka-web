@@ -134,8 +134,8 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://slapy-hrdlicka.cz');
     <script>
       const btn = document.getElementById('mobile-menu-btn');
       const menu = document.getElementById('mobile-menu');
-      const menuIcon = document.getElementById('menu-icon');
-      const closeIcon = document.getElementById('close-icon');
+      const menuIcon = document.getElementById('menu-icon')!;
+      const closeIcon = document.getElementById('close-icon')!;
 
       if (btn && menu) {
         btn.addEventListener('click', () => {
