@@ -2,8 +2,9 @@
 import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 
-// Importy obrázků pro další sekce si sem pak budeme postupně přidávat
-// import fotoParnik from '../assets/images/aktuality/parnik.jpg';
+import tenisKurt from '../assets/images/aktivity/tenis-kurt.jpg';
+import parnik from '../assets/images/aktivity/parnik.jpeg';
+import lanovyPark from '../assets/images/aktivity/lanovy-park.jpg';
 
 const pageTitle = 'Aktivity a výlety | Areál Malá Hrdlička';
 const pageDescription = 'Zábava pro celou rodinu u Slapské přehrady. Zjistěte, co dělat přímo v areálu, půjčte si lodičku, nebo vyrazte na výlet do okolí.';
@@ -27,7 +28,7 @@ const pageDescription = 'Zábava pro celou rodinu u Slapské přehrady. Zjistět
       </div>
     </section>
 
-    <section class="py-16 md:py-24 bg-white relative">
+    <section id="sport" class="py-16 md:py-24 bg-white relative">
       <div class="max-w-7xl mx-auto px-6">
         <div class="mb-16">
           <div class="inline-block px-3 py-1 rounded-sm bg-[#4F7942]/10 text-[#4F7942] text-[11px] font-bold tracking-widest uppercase mb-4">Zábava u nás</div>
@@ -78,10 +79,8 @@ const pageDescription = 'Zábava pro celou rodinu u Slapské přehrady. Zjistět
 
           <div class="lg:col-span-5 relative">
             <div class="relative w-full max-w-sm mx-auto lg:max-w-none">
-              <div class="aspect-[4/3] bg-[#F8F7F2] border-2 border-dashed border-[#4F7942]/20 rounded-sm shadow-xl rotate-2 hover:rotate-0 transition-transform duration-500 flex flex-col items-center justify-center text-[#4F7942]/50 relative z-10">
-                <svg class="w-12 h-12 mb-3 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                <span class="font-bold uppercase tracking-widest text-xs">Místo pro fotku</span>
-                <span class="text-[10px] mt-1 opacity-70">Poměr 4:3 (např. 800x600px)</span>
+              <div class="aspect-[4/3] overflow-hidden rounded-sm shadow-xl rotate-2 hover:rotate-0 transition-transform duration-500 relative z-10">
+                <Image src={tenisKurt} alt="Antukový tenisový kurt v blízkosti areálu Malá Hrdlička na Slapech" width={600} height={450} widths={[300, 450, 600]} sizes="(max-width: 640px) calc(100vw - 48px), (max-width: 1024px) 384px, 600px" format="avif" quality={65} loading="lazy" decoding="async" class="w-full h-full object-cover" />
               </div>
               <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-[#C5A059]/10 rounded-full z-0 pointer-events-none"></div>
             </div>
@@ -90,16 +89,15 @@ const pageDescription = 'Zábava pro celou rodinu u Slapské přehrady. Zjistět
       </div>
     </section>
 
-    <section class="py-16 md:py-32 bg-[#EFEBE0] relative border-t border-[#1B4332]/5">
+    <section id="vylety" class="py-16 md:py-32 bg-[#EFEBE0] relative border-t border-[#1B4332]/5">
       <div class="max-w-7xl mx-auto px-6">
         <div class="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
           <div class="lg:col-span-6 flex flex-col items-center lg:items-start relative order-2 lg:order-1 mt-8 lg:mt-0">
             <div class="w-full max-w-sm lg:w-[400px] relative z-0">
               <div class="absolute -top-6 -left-6 w-24 h-24 bg-[#4F7942]/10 rounded-full -z-10"></div>
 
-              <div class="aspect-square bg-white border border-[#1B4332]/5 p-2 shadow-lg rotate-[-2deg] flex flex-col items-center justify-center text-[#4F7942]/40 relative z-10">
-                <svg class="w-10 h-10 mb-2 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                <span class="font-bold uppercase tracking-widest text-[10px]">Menší fotka (1:1)</span>
+              <div class="aspect-square bg-white border border-[#1B4332]/5 p-2 shadow-lg rotate-[-2deg] overflow-hidden relative z-10">
+                <Image src={parnik} alt="Parník na Slapské přehradě v blízkosti areálu Malá Hrdlička" width={400} height={400} widths={[200, 400]} sizes="(max-width: 640px) calc(100vw - 48px), (max-width: 1024px) 384px, 400px" format="avif" quality={65} loading="lazy" decoding="async" class="w-full h-full object-cover" />
               </div>
             </div>
 
@@ -149,7 +147,7 @@ const pageDescription = 'Zábava pro celou rodinu u Slapské přehrady. Zjistět
       </div>
     </section>
 
-    <section class="py-16 md:py-24 bg-white relative">
+    <section id="zabava" class="py-16 md:py-24 bg-white relative">
       <div class="max-w-7xl mx-auto px-6 relative z-10">
         <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div class="order-2 lg:order-1">
@@ -193,9 +191,8 @@ const pageDescription = 'Zábava pro celou rodinu u Slapské přehrady. Zjistět
             <div class="relative w-full max-w-[320px] mx-auto lg:mr-0 lg:ml-auto mt-auto mb-10 lg:mb-0">
               <div class="absolute -top-6 -right-6 w-24 h-24 bg-[#C5A059]/10 rounded-full blur-xl -z-10 pointer-events-none"></div>
 
-              <div class="aspect-[4/5] bg-white border border-[#1B4332]/5 p-2 shadow-xl rotate-[3deg] rounded-sm relative z-10 flex flex-col items-center justify-center text-[#4F7942]/40">
-                <svg class="w-8 h-8 mb-2 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                <span class="font-bold uppercase tracking-widest text-[10px] text-center px-2">Fotka adrenalinu<br />(Poměr 4:5)</span>
+              <div class="aspect-[4/5] bg-white border border-[#1B4332]/5 p-2 shadow-xl rotate-[3deg] rounded-sm overflow-hidden relative z-10">
+                <Image src={lanovyPark} alt="Lanový park Slapy v okolí areálu Malá Hrdlička" width={316} height={395} widths={[158, 316]} sizes="(max-width: 640px) calc(100vw - 48px), (max-width: 1024px) 320px, 316px" format="avif" quality={65} loading="lazy" decoding="async" class="w-full h-full object-cover" />
               </div>
             </div>
           </div>
@@ -203,7 +200,7 @@ const pageDescription = 'Zábava pro celou rodinu u Slapské přehrady. Zjistět
       </div>
     </section>
 
-    <section class="py-16 md:py-24 bg-[#1B4332] relative overflow-hidden border-t-4 border-[#C5A059]">
+    <section id="pamatky" class="py-16 md:py-24 bg-[#1B4332] relative overflow-hidden border-t-4 border-[#C5A059]">
       <div class="max-w-7xl mx-auto px-6 relative z-10">
         <div class="text-center max-w-2xl mx-auto mb-12">
           <svg class="w-10 h-10 text-[#C5A059] mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>

@@ -2,8 +2,14 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import react from '@astrojs/react';
 import keystatic from '@keystatic/astro';
+import netlify from '@astrojs/netlify';
 
 export default defineConfig({
+  // --- ZMĚNĚNO Z HYBRID NA STATIC ---
+  output: 'static',
+  adapter: netlify(),
+  // ----------------------------------
+
   server: {
     port: 3000,
   },
@@ -13,7 +19,6 @@ export default defineConfig({
   integrations: [
     react(),
     keystatic({
-      // Zkusíme přidat i configFile, aby Keystatic věděl, že ho vidíme
       adminPath: '/admin',
       configFile: './keystatic.config.ts',
     }),
