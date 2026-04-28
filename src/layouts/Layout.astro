@@ -138,11 +138,14 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://slapy-hrdlicka.cz');
       const closeIcon = document.getElementById('close-icon')!;
 
       if (btn && menu) {
+        btn.setAttribute('aria-expanded', 'false');
         btn.addEventListener('click', () => {
           menu.classList.toggle('hidden');
           menu.classList.toggle('flex');
           menuIcon.classList.toggle('hidden');
           closeIcon.classList.toggle('hidden');
+          const isOpen = menu.classList.contains('flex');
+          btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
         });
       }
     </script>
