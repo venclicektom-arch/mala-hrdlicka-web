@@ -1,14 +1,23 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig, passthroughImageService } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import react from '@astrojs/react';
 import keystatic from '@keystatic/astro';
 import sitemap from '@astrojs/sitemap';
-import netlify from '@astrojs/netlify'; // 1. TENTO IMPORT TI CHYBĚL
+import netlify from '@astrojs/netlify';
 
 export default defineConfig({
   site: 'https://slapy-hrdlicka.cz',
+
   output: 'static',
-  adapter: netlify(), // 2. TENTO ŘÁDEK TI CHYBĚL
+  adapter: netlify({
+    // 🆕 KRITICKÉ: vypnout Netlify Image CDN
+    imageCDN: false,
+  }),
+
+  // 🆕 Vynutit Sharp jako image service
+  image: {
+    service: { entrypoint: 'astro/assets/services/sharp' },
+  },
 
   server: {
     port: 3000,
