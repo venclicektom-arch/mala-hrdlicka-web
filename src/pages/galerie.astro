@@ -62,7 +62,7 @@ const gallerySections = nonEmptySections.sort((a, b) => a.data.order - b.data.or
                 return (
                   <div class={`photo-anim-wrapper ${visibilityClass}`}>
                     <a href={item.image.src} data-pswp-width={item.image.width} data-pswp-height={item.image.height} target="_blank" class="block group relative overflow-hidden rounded-sm shadow-sm hover:shadow-xl transition-all duration-300 cursor-zoom-in aspect-[4/3] bg-[#EFEBE0] h-full">
-                      <Image src={item.image} alt={item.alt} width={800} class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                      <Image src={item.image} alt={item.alt} width={800} height={600} format="avif" quality={70} loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                       <div class="absolute inset-0 bg-gradient-to-t from-[#1B4332]/90 via-[#1B4332]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                         <p class="text-[#EFEBE0] font-light tracking-wide transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">{item.alt}</p>
                       </div>
@@ -74,7 +74,7 @@ const gallerySections = nonEmptySections.sort((a, b) => a.data.order - b.data.or
 
             {section.data.images.length > 4 && (
               <div class={`mt-12 text-center ${section.data.images.length <= 6 ? 'md:hidden' : ''}`}>
-                <button class="show-more-btn px-8 py-3 rounded-sm bg-transparent border border-[#1B4332] text-[#1B4332] text-sm font-bold uppercase tracking-widest hover:bg-[#1B4332] hover:text-white transition-all duration-300" data-target={`grid-${section.id}`}>
+                <button class="show-more-btn px-8 py-3 rounded-sm bg-transparent border border-[#1B4332] text-[#1B4332] text-sm font-bold uppercase tracking-widest hover:bg-[#1B4332] hover:text-white transition-all duration-300" data-target={`grid-${section.id}`} aria-expanded="false">
                   Zobrazit více
                 </button>
               </div>
@@ -201,6 +201,7 @@ const gallerySections = nonEmptySections.sort((a, b) => a.data.order - b.data.or
       button.addEventListener('click', (e) => {
         const btn = e.currentTarget as HTMLButtonElement;
         const targetId = btn.getAttribute('data-target');
+        if (!targetId) return;
         const grid = document.getElementById(targetId);
 
         if (grid) {
@@ -223,6 +224,7 @@ const gallerySections = nonEmptySections.sort((a, b) => a.data.order - b.data.or
             });
             btn.textContent = 'Zobrazit méně';
             btn.setAttribute('data-expanded', 'true');
+            btn.setAttribute('aria-expanded', 'true');
           } else {
             const currentlyExpandedPhotos = grid.querySelectorAll('.force-show');
 
@@ -235,6 +237,7 @@ const gallerySections = nonEmptySections.sort((a, b) => a.data.order - b.data.or
 
             btn.textContent = 'Zobrazit více';
             btn.setAttribute('data-expanded', 'false');
+            btn.setAttribute('aria-expanded', 'false');
             const section = grid.closest('section');
             if (section) section.scrollIntoView({ behavior: 'smooth' });
           }

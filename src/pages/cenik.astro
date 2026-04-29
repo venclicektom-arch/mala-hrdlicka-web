@@ -5,7 +5,6 @@ import { getEntry } from 'astro:content';
 // Vytáhneme ceník z CMS (použijeme id 'index', protože je to Singleton)
 const cenikEntry = await getEntry('cenik', 'index');
 const data = cenikEntry?.data;
-console.log('CENIK DATA:', data);
 
 // Pomocná funkce pro ikony (převede text z CMS na tvé SVG cesty)
 const getIconPath = (iconName: string) => {
@@ -32,7 +31,7 @@ const stornoColors = [
 ];
 ---
 
-<Layout title="Ceník ubytování | Malá Hrdlička">
+<Layout title="Ceník ubytování | Malá Hrdlička" description="Aktuální ceník ubytování v areálu Malá Hrdlička na Slapech. Týdenní pobyty v apartmánech a chatkách, krátkodobé pobyty, slevy a stornovací podmínky.">
   <main class="bg-[#F8F7F2] min-h-screen">
     <section class="pt-16 pb-16 md:pt-24 md:pb-24 bg-[#EFEBE0] relative overflow-hidden">
       <div class="absolute inset-0 opacity-[0.03]">
@@ -167,7 +166,7 @@ const stornoColors = [
                 <div class="relative z-10 flex flex-col h-full">
                   <div class="flex flex-wrap justify-between items-start gap-4 mb-5">
                     <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center text-[#4F7942] shadow-sm shrink-0">
-                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={getIconPath(pobyt.ikona)} />
                       </svg>
                     </div>
@@ -207,7 +206,7 @@ const stornoColors = [
                 {sluzba.highlight && <div class="absolute -top-3 right-4 bg-[#C5A059] text-white text-[9px] font-bold uppercase tracking-widest px-3 py-1 rounded-sm shadow-sm">Speciální akce</div>}
 
                 <div class="w-10 h-10 mb-6 bg-[#4F7942]/10 rounded-full flex items-center justify-center text-[#4F7942]">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={getIconPath(sluzba.ikona)} />
                   </svg>
                 </div>
@@ -231,7 +230,7 @@ const stornoColors = [
         <div class="grid lg:grid-cols-12 gap-12 lg:gap-20">
           <div class="lg:col-span-7 flex flex-col justify-center">
             <h2 class="text-2xl font-bold text-[#1B4332] uppercase mb-6 flex items-center gap-3">
-              <svg class="w-6 h-6 text-[#C5A059]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+              <svg class="w-6 h-6 text-[#C5A059]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
               Stornopodmínky
             </h2>
             <p class="text-[#5C6656] text-sm mb-10 leading-relaxed max-w-lg">Při zrušení rezervace se výše doplatku/stornopoplatku počítá podle počtu zbývajících dnů do plánovaného nástupu na pobyt.</p>
@@ -256,7 +255,7 @@ const stornoColors = [
 
           <div class="lg:col-span-5">
             <h2 class="text-2xl font-bold text-[#1B4332] uppercase mb-6 flex items-center gap-3">
-              <svg class="w-6 h-6 text-[#C5A059]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              <svg class="w-6 h-6 text-[#C5A059]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
               Poplatek obci
             </h2>
 
@@ -273,15 +272,15 @@ const stornoColors = [
               <h3 class="text-[11px] font-bold text-[#1B4332] uppercase tracking-widest mb-4">Osvobozeny od poplatku jsou:</h3>
               <ul class="space-y-3 text-[#5C6656] text-sm font-light">
                 <li class="flex items-start gap-3">
-                  <svg class="w-4 h-4 text-[#C5A059] mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                  <svg class="w-4 h-4 text-[#C5A059] mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                   Osoby mladší 18 let a starší 70 let.
                 </li>
                 <li class="flex items-start gap-3">
-                  <svg class="w-4 h-4 text-[#C5A059] mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                  <svg class="w-4 h-4 text-[#C5A059] mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                   Držitelé průkazu ZTP/P a jejich průvodci.
                 </li>
                 <li class="flex items-start gap-3">
-                  <svg class="w-4 h-4 text-[#C5A059] mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                  <svg class="w-4 h-4 text-[#C5A059] mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
                   Osoby nevidomé nebo závislé na pomoci jiné osoby.
                 </li>
               </ul>
@@ -316,7 +315,7 @@ const stornoColors = [
       </div>
 
       <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] z-20 translate-y-[1px]">
-        <svg class="block w-full h-[40px] md:h-[80px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <svg class="block w-full h-[40px] md:h-[80px]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true">
           <path d="M0,0 C300,120 900,120 1200,0 L1200,120 L0,120 Z" fill="#4F7942"></path>
         </svg>
       </div>

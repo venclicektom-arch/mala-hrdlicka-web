@@ -38,3 +38,20 @@ header {
   /* Zajistí, že i fixní/sticky prvky budou respektovat rezervované místo pro posuvník */
   padding-right: env(safe-area-inset-right);
 }
+
+#mobile-menu {
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
