@@ -1,7 +1,13 @@
 import { config, fields, collection, singleton } from '@keystatic/core';
 
 export default config({
-  storage: { kind: 'local' },
+  storage: {
+    kind: 'github',
+    repo: {
+      owner: 'venclicektom-arch',
+      name: 'mala-hrdlicka-web',
+    },
+  },
 
   // ZDE PŘIDÁVÁME SINGLETON PRO CENÍK
   singletons: {
